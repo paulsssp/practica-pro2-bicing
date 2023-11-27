@@ -8,8 +8,8 @@
 using namespace std;
 
 #ifndef NO_DIAGRAM
-// INCLUDES QUE NO QUIERES QUE SALGAN EN 
 #include <string>
+#include <map>
 #include "BinTree.hh"
 #endif
 
@@ -24,30 +24,76 @@ class Bicing {
 
 private:
 int nro_estaciones;
+int nro_plaza_libres_total;
 // hay que guardar la estacion especial ???
 // hace falta poner el nro_de_plazas_libres_total (o solo a nivel de estacion)
 string id_coeficiente_max;
-BinTree<Estacion> bicing;
+BinTree<string> bicing;  // bintree de id de estaciones
+map <string, Estacion> m;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
-// brainstorming
-// map<Bicicleta,Estacion> m;
-// map<Estacion, >
 
 public:
     // Constructoras
 
-    /** @brief Creadora de un procesador
+    /** @brief Constructora de un bicing
     *
     * \pre <em>cierto</em>
-    * \post El resultado es un procesador con ID = id y sin memoria.
+    * \post El resultado es un bicing sin identificador...   //arreglar esto
     */
-    // funcion
+    Bicing();
+
 
     // Modificadoras
 
+    /** @brief Mueve una bici de una estacion a otra
+    *
+    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
+    * \post
+    */
+    void mover_bici(string id_bici, string id_estacion_destino);  // acabar la pre y la post
+
+    /** @brief Reestructura la ubicacion de las bicis en el bicing
+    *     
+    * \pre <em>cierto</em>
+    * \post Acerca bicis hasta la primera estacion
+    */
+    void subir_bicis(); // tiene que ser static????
+
+    /** @brief Asigna una estacion a una bici
+    *     
+    * \pre Hay plazas libres en el bicing
+    * \post Asigna una estacion a una bici y retorna el ID_ESTACION de la estacion asignada
+    */
+    string asignar_estacion(string id_bici) const; // tiene que ser static????
+
+
     // Consultoras
 
+    /** @brief Consultora de una estación
+    *
+    * \pre id_estacion solo tiene letras y dígitos
+    * \post El resultado indica si existe una estacion en el parámetro implícito con ID_ESTACION = id_estacion
+    */
+    bool existe_estacion(string id_estacion) const;
+
+    // mirar de cambiar el brief pq es igual que el anterior
+    /** @brief Consultora de una estacion
+    *
+    * \pre existe una estcion en el parametro implicito con ID_ESTACION = id_estacion
+    * \post El resultado es la estacion con ID_ESTACION = id_estacion que contiene el parametro implicito
+    */
+    Estacion consultar_estacion(string id_estacion) const;
+
+    /** @brief Consultora de las plazas libres del bicing
+    *
+    * \pre <em>cierto</em>
+    * \post El resultado indica es el numero de plazas libres del bicing
+    */
+    int plazas_libres_total() const;
+
+
     // Destructora (en caso que haya)
+
 
     // Lectura y escritura (en caso que haya)
 
