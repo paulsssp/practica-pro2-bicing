@@ -1,5 +1,8 @@
 /** @file Cjo_bicis.hh
+ *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase conjunto de bicicletas
+ * 
+ *  @copyright Copyright (c) 2023
 */
 #ifndef CJO_BICIS_HH
 #define CJO_BICIS_HH

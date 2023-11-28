@@ -1,5 +1,8 @@
 /** @file Bicing.hh
+ *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase Bicing
+ * 
+ *  @copyright Copyright (c) 2023
 */
 #ifndef BICING_HH
 #define BICING_HH
@@ -19,28 +22,29 @@ using namespace std;
  *
  *  descripcion detallada
 */
-
 class Bicing {
 
 private:
-int nro_estaciones;
-int nro_plaza_libres_total;
-// hay que guardar la estacion especial ???
-// hace falta poner el nro_de_plazas_libres_total (o solo a nivel de estacion)
-string id_coeficiente_max;
-BinTree<string> bicing;  // bintree de id de estaciones
-map <string, Estacion> m;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
+    int nro_estaciones;
+    int nro_plaza_libres_total;
+    // hay que guardar la estacion especial ???
+    string id_coeficiente_max;
+    BinTree<string> bicing;  // bintree de id de estaciones
+    map <string, Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
 
 public:
     // Constructoras
 
-    /** @brief Constructora de un bicing
+    /** @brief Creadora por defecto
     *
+    * Se ejecuta automáticamente al declarar un bicing
     * \pre <em>cierto</em>
     * \post El resultado es un bicing sin identificador...   //arreglar esto
     */
     Bicing();
+
+    // habrá que crear copiadoras??
 
 
     // Modificadoras
@@ -96,6 +100,14 @@ public:
 
 
     // Lectura y escritura (en caso que haya)
+
+
+    /** @brief Operación de lecturas
+    *
+    * \pre <em>cierto</em>
+    * \post El parámetro implícito pasa a tener los atributos leidos del canal estandar d'entrada
+    */
+    void leer();
 
 };
 

@@ -1,10 +1,14 @@
 /** @file Estacion.hh
+ *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase Estacion
+ * 
+ *  @copyright Copyright (c) 2023
 */
 #ifndef ESTACION_HH
 #define ESTACION_HH
 
 #include "Bicicleta.hh"
+#include "Cjo_bicis.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM
@@ -18,18 +22,24 @@ using namespace std;
  *
  *  descripcion detallada
 */
-
 class Estacion {
 
 private:
-string id_estacion;
-int nro_bicis; // o mirar el size()
-int capacidad; 
-int coeficiente;
-// nro_plazas_libres (capacidad - nro_bicis) 
-// int nro_estaciones_siguientes;   es realmente necesario????
+    string id_estacion;
+    int nro_bicis; // o mirar el size()
+    int capacidad; 
+    int coeficiente;
+    // nro_plazas_libres (capacidad - nro_bicis) 
+    // int nro_estaciones_siguientes;   es realmente necesario????
+    Cjo_bicis bicis;
 
-list<string> bicis;  // lista de las bicis que hay en la estacion
+    /** @brief Da de alta una bici en una estación
+    *
+    * \pre El campo coeficiente del parámetro implícito no necesariamente tiene el valor que le corresponde
+    * \post El campo coeficiente se actualiza
+    */
+    void recalcular_coeficiente();
+
 public:
     // Constructoras
 
