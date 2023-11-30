@@ -30,9 +30,15 @@ private:
     // hay que guardar la estacion especial ???
     string id_coeficiente_max;
     BinTree<string> bicing;  // bintree de id de estaciones
-    map <string, Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
+    map<string, Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
-
+    /** @brief Lee el árbol de estaciones recursivamente
+    *
+    * La lectura se hace immersiva
+    * \pre <em>cierto</em>
+    * \post El árbol de identificadores y su mapa de de estaciones implicitas creados correctamente.
+    */
+    BinTree<string> leer_bintree();
 public:
     // Constructoras
 
@@ -102,8 +108,9 @@ public:
     // Lectura y escritura (en caso que haya)
 
 
-    /** @brief Operación de lecturas
+    /** @brief Operación de lectura
     *
+    * La lectura se hace immersiva
     * \pre <em>cierto</em>
     * \post El parámetro implícito pasa a tener los atributos leidos del canal estandar d'entrada
     */
