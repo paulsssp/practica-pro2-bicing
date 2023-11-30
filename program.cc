@@ -29,6 +29,7 @@ int main() {
             cin >> id_bici;
             cout << "#" << accion << ' ' << id_bici << endl;
 
+            // tengo que cambiar este trozo de codigo para hacer que se llame baja bici desde estacion y no conjunto de bicis
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;
             else {
                 // la bici desaparece del sistema: del conjunto de bicis y de la esatcion asociada

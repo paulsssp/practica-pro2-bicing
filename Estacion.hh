@@ -51,6 +51,15 @@ public:
     Estacion();
 
 
+    // arreglar el doxygen de esta creadora
+    /** @brief Constructora de una estación
+    *
+    * \pre <em>cierto</em>
+    * \post El resultado es una estación sin identificador...   //arreglar esto
+    */
+    Estacion(string id_estacion, int capacidad);
+
+
     // Modificadoras
 
     /** @brief Da de alta una bici en una estación
@@ -60,6 +69,13 @@ public:
     * \post El resultado indica si el parametro implicito tiene plazas libres
     */
     void alta_bici(string id_bici);
+
+    /** @brief Da de baja una bici en una estación
+    *
+    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
+    * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
+    */
+    void baja_bici(string id_bici);
 
     /** @brief Modifica la capacidad de una estación
     *
@@ -99,6 +115,14 @@ public:
     * \post El resultado es el numero de bicis que hay en una estacion
     */
     int num_bicis() const;
+
+    //  no necesaria
+    /*/** @brief Consultora del identificador del parametro implicito
+    *
+    * \pre <em>cierto</em>
+    * \post El resultado es el identificador de la estacion
+    */
+    /*string consultar_id_estacion() const;
 
 
     // Destructora (en caso que haya)

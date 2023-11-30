@@ -39,6 +39,14 @@ public:
     */
     Bicicleta();
 
+    /** @brief Creadora
+    *
+    * Se ejecuta automáticamente al declarar una Bicicleta
+    * \pre <em>cierto</em>
+    * \post El resultado es una bicicleta sin identificador...   //arreglar esto
+    */
+    Bicicleta(string id_bici, string id_estacion, list<string> recorrido_bici);
+
     // alta_bici es una constructora, debería de ir aqui?????
 
 

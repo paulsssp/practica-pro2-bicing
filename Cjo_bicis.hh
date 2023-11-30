@@ -39,12 +39,19 @@ class Cjo_bicis {
 
         // Modificadoras
 
+        /** @brief Da de alta una bici
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
+        * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
+        */
+        void añadir_bici(string id_bici, const Bicicleta& bici);
+
         /** @brief Da de baja una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
         * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
         */
-        void baja_bici(string id_bici);
+        void borrar_bici(string id_bici);
 
 
         // Consultoras
