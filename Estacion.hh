@@ -116,15 +116,6 @@ public:
     */
     int num_bicis() const;
 
-    //  no necesaria
-    /*/** @brief Consultora del identificador del parametro implicito
-    *
-    * \pre <em>cierto</em>
-    * \post El resultado es el identificador de la estacion
-    */
-    /*string consultar_id_estacion() const;
-
-
     // Destructora (en caso que haya)
 
 

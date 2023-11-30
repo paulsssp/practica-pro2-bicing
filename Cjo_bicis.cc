@@ -1,4 +1,6 @@
 #include "Cjo_bicis.hh"
+#include <map>
+
 
 Cjo_bicis::Cjo_bicis() {
     cto_bicis = map<string, Bicicleta>();
@@ -18,3 +20,7 @@ void Cjo_bicis::añadir_bici(string id_bici, const Bicicleta& bici) {
 void Cjo_bicis::borrar_bici(string id_bici) {
     
 }
+
+string Cjo_bicis::consultar_estacion_bici(string id_bici) const {
+    return cto_bicis[id_bici].estacion_asignada();
+} 
