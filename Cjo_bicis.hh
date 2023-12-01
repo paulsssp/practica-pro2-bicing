@@ -8,6 +8,8 @@
 #define CJO_BICIS_HH
 
 #include "Bicicleta.hh"
+#include "Estacion.hh"
+#include "Bicing.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM
@@ -69,6 +71,10 @@ class Cjo_bicis {
         * \post El resultado es la estacion con ID_BICI = id_bici que contiene el parametro implicito
         */
         Bicicleta consultar_bici(string id_bici) const;
+
+        string consultar_id_estacion_bici(string id_bici);
+
+        Estacion consultar_estacion_bici(string id_bici, const Bicing& bicing);
 
 
         // Lectura y escritura

@@ -22,18 +22,16 @@ int main() {
             Estacion est = bicing.consultar_estacion(id_estacion);
             if (not est.hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
             else est.alta_bici(id_bici);
-            // habrá que añadir la bici al conjunto de bicis
         } 
         else if (accion == "baja_bici" or accion == "bb") {
             string id_bici;
             cin >> id_bici;
             cout << "#" << accion << ' ' << id_bici << endl;
 
-            // tengo que cambiar este trozo de codigo para hacer que se llame baja bici desde estacion y no conjunto de bicis
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;
             else {
-                // la bici desaparece del sistema: del conjunto de bicis y de la esatcion asociada
-                cjo_bicis.baja_bici(id_bici);
+                Estacion est = cjo_bicis.consultar_estacion_bici(id_bici, bicing);
+                est.baja_bici(id_bici); // la bici desaparece del sistema: del conjunto de bicis y de la esatcion asociada
             }
         } 
         else if (accion == "estacion_bici" or accion == "eb") {

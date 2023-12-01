@@ -7,7 +7,6 @@
 #ifndef BICICLETA_HH
 #define BICICLETA_HH
 
-#include "Estacion.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM

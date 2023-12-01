@@ -1,5 +1,4 @@
 #include "Cjo_bicis.hh"
-#include <map>
 
 
 Cjo_bicis::Cjo_bicis() {
@@ -18,9 +17,14 @@ void Cjo_bicis::añadir_bici(string id_bici, const Bicicleta& bici) {
 }
 
 void Cjo_bicis::borrar_bici(string id_bici) {
-    
+    cto_bicis.erase(id_bici);
 }
 
-string Cjo_bicis::consultar_estacion_bici(string id_bici) const {
+string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
     return cto_bicis[id_bici].estacion_asignada();
 } 
+
+Estacion Cjo_bicis::consultar_estacion_bici(string id_bici, const Bicing& bicing) {
+    string id_estacion = consultar_id_estacion_bici(id_bici);
+    return bicing.consultar_estacion(id_estacion); // acceder al bicing y consultar la estacion con id_estacion
+}
