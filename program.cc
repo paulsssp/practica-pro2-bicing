@@ -8,7 +8,6 @@ int main() {
     Bicing bicing;
     bicing.leer();
     Cjo_bicis cjo_bicis;
-    //habrá que añadir las bicis que hemos leido en el bicing a cjo_bicis
     string accion;
     cin >> accion;
     while (accion != "fin") {
@@ -21,7 +20,17 @@ int main() {
             else if (not bicing.existe_estacion(id_estacion)) cout << "error: la estacion no existe" << endl;
             Estacion est = bicing.consultar_estacion(id_estacion);
             if (not est.hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
-            else est.alta_bici(id_bici);
+            // else est.alta_bici(id_bici);
+
+            // insertar en el map de cjo bicis la bici inicializada
+            // desde bicing  acceder a la estacion y añadir la bici allí
+            // modificar las plaza libres del bicing y las de la estacion
+
+            else {
+
+                cjo_bici.alta_bici(id_bici, id_estacion, est);  
+                // modificar las plazal libres del bicing
+            }
         } 
         else if (accion == "baja_bici" or accion == "bb") {
             string id_bici;
@@ -33,6 +42,10 @@ int main() {
                 Estacion est = cjo_bicis.consultar_estacion_bici(id_bici, bicing);
                 est.baja_bici(id_bici); // la bici desaparece del sistema: del conjunto de bicis y de la esatcion asociada
             }
+
+            // eliminar la bici del map de cjo bicis
+            // desce el bicing acceder a la estacion y eliminar la bici de allí
+            // modificar las plazas libres del bicing y de la estacion
         } 
         else if (accion == "estacion_bici" or accion == "eb") {
             string id_bici;
@@ -84,6 +97,8 @@ int main() {
             Estacion est = bicing.consultar_estacion(id_estacion);
             if (nueva_capacidad < est.num_bicis()) cout << "error: capacidad insuficiente" << endl;
             else est.modificar_capacidad(nueva_capacidad); 
+            // modificar la capacidad y las plazas libres de una estacion
+            // podificar las plazas totales del bicing
         } 
         else if (accion == "plazas_libres" or accion == "pl") {
             cout << "#" << accion << endl;
@@ -94,6 +109,7 @@ int main() {
             cout << "#" << accion << endl;
 
             bicing.subir_bicis();
+            // añadir y quitar bicis de bicing (implica la clase estacion tmb)
         } 
         else if (accion == "asignar_estacion" or accion == "ae") {
             string id_bici;
@@ -103,6 +119,9 @@ int main() {
             if (cjo_bicis.existe_bici(id_bici)) cout << "error: la bici ya existe" << endl;
             else if (bicing.plazas_libres_total() == 0) cout << "error: no hay plazas libres" << endl;
             else cout << bicing.asignar_estacion(id_bici) << endl;
+            // hay que buscar la mejor estacion para la bici (bicing)
+            // añadir la bici al conjunto de bicis (bicing y estacion)
+            // insert en el cjo_bicis la nueva bici inicializada
         } 
     }
 }
