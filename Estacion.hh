@@ -25,13 +25,13 @@ using namespace std;
 class Estacion {
 
 private:
-    string id_estacion;
+    string id_estacion;  // esta al conjunt d'estacions ja
     int nro_bicis; // o mirar el size()
     int capacidad; 
     int coeficiente;
     // nro_plazas_libres (capacidad - nro_bicis) 
     // int nro_estaciones_siguientes;   es realmente necesario????
-    Cjo_bicis bicis;
+    Cjo_bicis bicis;  // o un set de strings
 
     /** @brief Da de alta una bici en una estación
     *
