@@ -33,13 +33,6 @@ int main() {
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;
             else {
                 Estacion est = cjo_bicis.consultar_estacion_bici(id_bici, bicing);
-                // est.baja_bici(id_bici); // la bici desaparece del sistema: del conjunto de bicis y de la esatcion asociada
-                
-                
-                // eliminar la bici del map de cjo bicis
-                // desce el bicing acceder a la estacion y eliminar la bici de allí
-                // modificar las plazas libres del bicing y de la estacion
-
                 cjo_bicis.baja_bici(id_bici, est);
                 bicing.modificar_plazas(1); // suma una plaza libre del bicing
             }
@@ -108,7 +101,7 @@ int main() {
             cout << "#" << accion << endl;
 
             bicing.subir_bicis();
-            // añadir y quitar bicis de bicing (implica la clase estacion tmb)
+            // anadir y quitar bicis de bicing (implica la clase estacion tmb)
         } 
         else if (accion == "asignar_estacion" or accion == "ae") {
             string id_bici;
@@ -119,7 +112,7 @@ int main() {
             else if (bicing.plazas_libres_total() == 0) cout << "error: no hay plazas libres" << endl;
             else cout << bicing.asignar_estacion(id_bici) << endl;
             // hay que buscar la mejor estacion para la bici (bicing)
-            // añadir la bici al conjunto de bicis (bicing y estacion)
+            // anadir la bici al conjunto de bicis (bicing y estacion)
             // insert en el cjo_bicis la nueva bici inicializada
         } 
     }

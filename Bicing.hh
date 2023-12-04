@@ -8,6 +8,7 @@
 #define BICING_HH
 
 #include "Estacion.hh"
+#include "Cjo_bicis.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM
@@ -29,7 +30,7 @@ private:
     //int nro_estaciones;   es pot fer .size() en un mapa pero nse si petará la eficiéncia
     int nro_plaza_libres_total;
     // hay que guardar la estacion especial ???
-    string id_coeficiente_max;
+    string id_coeficiente_max;  // imax
     BinTree<string> bicing;  // bintree de id de estaciones
     map<string,Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
@@ -61,7 +62,7 @@ public:
     * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
     * \post
     */
-    void mover_bici(string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
+    void mover_bici(Cjo_bicis& cjo_bicis, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
 
     /** @brief Reestructura la ubicacion de las bicis en el bicing
     *     

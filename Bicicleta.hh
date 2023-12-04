@@ -25,8 +25,8 @@ class Bicicleta {
 private:
     // string id_bicicleta;   no cal pq ho tinc al conjunt de bicis
     string id_estacion_asignada;
-    list<string> recorrido_bici;    // va guardando los id de las estaciones por las que va pasando la bici
-    // hacer string string de origen - desti (   pair)
+    list<pair<string,string> > recorrido_bici;  // va guardando los id de las estaciones por las que va pasando la bici
+    // pairs de origen , destino
 
 public:
     // Constructoras
@@ -51,6 +51,8 @@ public:
 
 
     // Modificadoras
+
+    void modificar_estacion_(string id_estacion);
 
 
     // Consultoras

@@ -40,7 +40,7 @@ class Cjo_bicis {
 
 
         // Modificadoras
-        //BORRAR LAS DOS BUNCIONES ANTIGUAS DE AÑADIR Y BORRAR BICI
+        //BORRAR LAS DOS BUNCIONES ANTIGUAS DE anadir Y BORRAR BICI
 
         /** @brief Da de alta una bici
         *

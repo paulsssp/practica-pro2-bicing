@@ -10,21 +10,16 @@ bool Cjo_bicis::existe_bici(string id_bici) const {
 }
 
 void Cjo_bicis::alta_bici(string id_bici, string id_estacion, Estacion& est) {
-    // insertar en el map de cjo bicis la bici inicializada
-    // desde bicing  acceder a la estacion y añadir la bici allí
-    // modificar las plaza libres del bicing y las de la estacion
-
     list<string> recorrido_bici {id_estacion};
     Bicicleta bici = Bicicleta(id_estacion, recorrido_bici);
     cto_bicis[id_bici] = bici;
-    // llamo a añadir bici de estacion? o la llamo en el main
-    est.añadir_bici(id_bici);
+    // llamo a anadir bici de estacion? o la llamo en el main    si no lo llamo desde el main ha de ser una funcion privada
+    est.anadir_bici(id_bici);
 }
 
 void Cjo_bicis::baja_bici(string id_bici, Estacion& est) {
     cto_bicis.erase(id_bici);
     est.borrar_bici(id_bici);
-
 }
 
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {

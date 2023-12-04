@@ -3,7 +3,6 @@
 Bicing::Bicing() {
     bicing = BinTree<string>();
     estaciones = map<string,Estacion>();
-    // cjo_bicis vacío (lo haremos desde el main al inicio a no ser que se haya de crear un nuevo bicing que no creo)
     id_coeficiente_max = "-1";
     nro_plaza_libres_total = 0;
     //nro_estaciones = 0;
@@ -43,17 +42,17 @@ void Bicing::modificar_plazas(int diferencia_plazas) {
     nro_plaza_libres_total += diferencia_plazas;  // si la diferencia es negativa se restará igualmente
 }
 
-//void Bicing::mover_bici(string id_bici, string id_estacion_actual, string id_estacion_destino) {
-    // Para estacion actual:
-    // hay que modificar ++nro_plazas_libres;
-    // hay que borrar la bici de set<string> bicis;
-
-    // Para estacion destino:
-    // hay que modificar --nro_plazas_libres;
-    // hay que añadir la bici a set<string> bicis;
+void Bicing::mover_bici(Cjo_bicis& cjo_bicis, string id_bici, string id_estacion_actual, string id_estacion_destino) {
+    Estacion est_actual = consultar_estacion(id_estacion_actual);
+    Estacion est_destino = consultar_estacion(id_estacion_actual);
+    cjo_bicis.baja_bici(id_bici, est_actual);
+    cjo_bicis.alta_bici(id_bici, id_estacion_destino, est_destino);
 
     // Para la bici:
     // hay que modificar el id_estacion_actual por el id_estacion_destino
     // para ello hay que consultarlo desde conjunto de bicis (en program.cc o desde aquí???)
-//}       
+    
+    cjo_bicis.consultar_bici(id_bici).modificar_estacion(id_estacion_destino);
+
+}       
 

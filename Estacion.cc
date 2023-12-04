@@ -6,7 +6,7 @@ bool Estacion::hay_plazas_libres() const {
     // o con el size del map de bicis
 }
 
-void Estacion::añadir_bici(string id_bici) {
+void Estacion::anadir_bici(string id_bici) {
     ++nro_bicis; // o lo hace el size
     --nro_plazas_libres; 
     bicis.insert(id_bici);

@@ -67,7 +67,7 @@ public:
     * hay plazas libres en el parametro implicito
     * \post El resultado indica si el parametro implicito tiene plazas libres
     */
-    void añadir_bici(string id_bici);
+    void anadir_bici(string id_bici);
 
     /** @brief Da de baja una bici en una estación
     *

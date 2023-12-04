@@ -10,6 +10,11 @@ Bicicleta::Bicicleta(string id_estacion, list<string> recorrido_bici) {
     this->recorrido_bici = recorrido_bici;
 }
 
+void Bicicleta::modificar_estacion_(string id_estacion) {
+    id_estacion_asignada = id_estacion;
+    recorrido_bici.push_back(id_estacion);
+}
+
 
 // hago un void o otra cosas????    aqui o en lectura/escritura
 void Bicicleta::viajes_bici() const {
