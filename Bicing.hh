@@ -11,6 +11,7 @@
 using namespace std;
 
 #ifndef NO_DIAGRAM
+#include <iostream>
 #include <string>
 #include <map>
 #include "BinTree.hh"
@@ -30,7 +31,7 @@ private:
     // hay que guardar la estacion especial ???
     string id_coeficiente_max;
     BinTree<string> bicing;  // bintree de id de estaciones
-    map<string, Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
+    map<string,Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
     /** @brief Lee el árbol de estaciones recursivamente
     *
@@ -60,7 +61,7 @@ public:
     * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
     * \post
     */
-    void mover_bici(string id_bici, string id_estacion_destino);  // acabar la pre y la post
+    void mover_bici(string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
 
     /** @brief Reestructura la ubicacion de las bicis en el bicing
     *     
@@ -76,6 +77,7 @@ public:
     */
     string asignar_estacion(string id_bici) const; // tiene que ser static????
 
+    void modificar_plazas(int diferencia_plazas);
 
     // Consultoras
 

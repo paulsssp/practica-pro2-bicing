@@ -1,13 +1,11 @@
 #include "Bicicleta.hh"
 
 Bicicleta::Bicicleta() {
-    id_bicicleta = "";    // hacer strings vacios en vez de -
     id_estacion_asignada = "";
     recorrido_bici = list<string>();
 }
 
-Bicicleta::Bicicleta(string id_bici, string id_estacion, list<string> recorrido_bici) {
-    id_bicicleta = id_bici;
+Bicicleta::Bicicleta(string id_estacion, list<string> recorrido_bici) {
     id_estacion_asignada = id_estacion;
     this->recorrido_bici = recorrido_bici;
 }
