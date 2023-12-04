@@ -10,6 +10,7 @@
 using namespace std;
 
 #ifndef NO_DIAGRAM
+#include <iostream>
 #include <string>
 #include <list>
 #endif
@@ -26,7 +27,7 @@ private:
     // string id_bicicleta;   no cal pq ho tinc al conjunt de bicis
     string id_estacion_asignada;
     list<pair<string,string> > recorrido_bici;  // va guardando los id de las estaciones por las que va pasando la bici
-    // pairs de origen , destino
+    // pairs de origen , destino0
 
 public:
     // Constructoras
@@ -45,14 +46,14 @@ public:
     * \pre <em>cierto</em>
     * \post El resultado es una bicicleta sin identificador...   //arreglar esto
     */
-    Bicicleta(string id_estacion, list<string> recorrido_bici);
+    Bicicleta(string id_estacion, list<pair<string,string> > recorrido_bici);
 
     // alta_bici es una constructora, debería de ir aqui?????
 
 
     // Modificadoras
 
-    void modificar_estacion_(string id_estacion);
+    void modificar_estacion(string id_estacion);
 
 
     // Consultoras

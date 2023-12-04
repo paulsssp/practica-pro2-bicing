@@ -18,6 +18,6 @@ Cjo_bicis.o: Cjo_bicis.cc Cjo_bicis.hh Bicicleta.hh Estacion.hh Bicing.hh
 Bicicleta.o: Bicicleta.cc Bicicleta.hh
 	g++ -c Bicicleta.cc $(OPCIONS)
 
-clear:
+clean:
 	rm -f *.o
 	rm -f *.exe 

@@ -40,8 +40,16 @@ class Cjo_bicis {
 
 
         // Modificadoras
-        //BORRAR LAS DOS BUNCIONES ANTIGUAS DE anadir Y BORRAR BICI
 
+        // mover bici hay que ponerla en cjo bicis y pasarle el bicing como parametro
+       
+        /** @brief Mueve una bici de una estacion a otra
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
+        * \post
+        */
+         void mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
+        
         /** @brief Da de alta una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici

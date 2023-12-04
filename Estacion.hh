@@ -10,6 +10,7 @@
 using namespace std;
 
 #ifndef NO_DIAGRAM
+#include <iostream>
 #include <string>
 #include <set>
 #endif
@@ -56,7 +57,7 @@ public:
     * \pre <em>cierto</em>
     * \post El resultado es una estación sin identificador...   //arreglar esto
     */
-    Estacion(string id_estacion, int capacidad);
+    Estacion(int capacidad);
 
 
     // Modificadoras

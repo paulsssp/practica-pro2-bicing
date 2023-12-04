@@ -8,7 +8,6 @@
 #define BICING_HH
 
 #include "Estacion.hh"
-#include "Cjo_bicis.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM
@@ -57,12 +56,6 @@ public:
 
     // Modificadoras
 
-    /** @brief Mueve una bici de una estacion a otra
-    *
-    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
-    * \post
-    */
-    void mover_bici(Cjo_bicis& cjo_bicis, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
 
     /** @brief Reestructura la ubicacion de las bicis en el bicing
     *     
@@ -78,7 +71,10 @@ public:
     */
     string asignar_estacion(string id_bici) const; // tiene que ser static????
 
+    void modificar_estacion(const Estacion& est, string id_estacion);
+
     void modificar_plazas(int diferencia_plazas);
+
 
     // Consultoras
 

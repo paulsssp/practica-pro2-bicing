@@ -1,8 +1,28 @@
 #include "Estacion.hh"
 
+Estacion::Estacion() {
+    capacidad = 0;
+    nro_bicis = 0;
+    nro_plazas_libres = 0;
+    coeficiente = 0;
+    bicis = set<string>();
+}
+
+Estacion::Estacion(int capacidad) {
+    this->capacidad = capacidad;
+    nro_bicis = 0;
+    nro_plazas_libres = capacidad;
+    coeficiente = 0;
+    bicis = set<string>();
+}
+
+
+void Estacion::recalcular_coeficiente() {
+
+}
 
 bool Estacion::hay_plazas_libres() const {
-    return  nro_bicis > 0;
+    return  nro_plazas_libres > 0;
     // o con el size del map de bicis
 }
 
@@ -26,5 +46,21 @@ int Estacion::modificar_capacidad(int nueva_capacidad) {
     nro_plazas_libres = capacidad - bicis.size();
     return nro_plazas_libres - plazas_libres_anterior; // devuelve la diferencia de plazas libres para modificar el bicing
 } 
+   
+int Estacion::num_bicis() const  {
+    return nro_bicis;
+}
+
+int Estacion::plazas_libres() const {
+    return nro_plazas_libres;
+}
+
+
+void Estacion::listar_bicis() const {
+    for (set<string>::const_iterator it = bicis.begin(); it != bicis.end(); ++it) {
+        cout << *it << endl;
+    }
+}
+
 
 
