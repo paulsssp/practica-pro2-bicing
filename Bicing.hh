@@ -28,7 +28,6 @@ class Bicing {
 private:
     //int nro_estaciones;   es pot fer .size() en un mapa pero nse si petará la eficiéncia
     int nro_plaza_libres_total;
-    // hay que guardar la estacion especial ???
     string id_coeficiente_max;  // imax
     BinTree<string> bicing;  // bintree de id de estaciones
     map<string,Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion

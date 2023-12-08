@@ -55,14 +55,14 @@ class Cjo_bicis {
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
         * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
         */
-        void alta_bici(string id_bici, string id_estacion, Estacion& est);
+        void alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est);
 
         /** @brief Da de baja una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
         * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
         */
-        void baja_bici(string id_bici, Estacion& est);
+        void baja_bici(Bicing& bicing, string id_bici, Estacion& est);
 
         // Consultoras
 

@@ -53,7 +53,7 @@ public:
 
     // Modificadoras
 
-    void modificar_estacion(string id_estacion);
+    void modificar_bici(string id_estacion);
 
 
     // Consultoras

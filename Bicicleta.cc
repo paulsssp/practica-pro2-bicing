@@ -10,14 +10,13 @@ Bicicleta::Bicicleta(string id_estacion, list<pair<string,string> > recorrido_bi
     this->recorrido_bici = recorrido_bici;
 }
 
-void Bicicleta::modificar_estacion(string id_estacion) {
+void Bicicleta::modificar_bici(string id_estacion) {
     id_estacion_asignada = id_estacion;
     list<pair<string,string> >::iterator it = recorrido_bici.end();
     --it;
     if (it->second == "inicio") it->second = id_estacion;
     else recorrido_bici.push_back(make_pair(it->second, id_estacion));
 }
-
 
 void Bicicleta::viajes_bici() const {
     list<pair<string,string> >::const_iterator it = recorrido_bici.begin();

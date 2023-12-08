@@ -30,7 +30,6 @@ private:
     int coeficiente; // no se si es necesario
     int nro_plazas_libres; // (capacidad - nro_bicis) 
     // int nro_estaciones_siguientes;   es realmente necesario????
-    // Cjo_bicis bicis;  // o un set de strings
     set<string> bicis;
 
     /** @brief Da de alta una bici en una estación
