@@ -30,7 +30,7 @@ void Cjo_bicis::baja_bici(Bicing& bicing, string id_bici, Estacion& est) {
 
 void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino) {
     Estacion est_actual = bicing.consultar_estacion(id_estacion_actual);
-    Estacion est_destino = bicing.consultar_estacion(id_estacion_actual);
+    Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
     baja_bici(bicing, id_bici, est_actual);  // doy de baja la bici en la estacion actual
     alta_bici(bicing, id_bici, id_estacion_destino, est_destino); // doy de alta la bici en la estacion destino
     consultar_bici(id_bici).modificar_bici(id_estacion_destino); // tengo que modificar los viajes de la bici

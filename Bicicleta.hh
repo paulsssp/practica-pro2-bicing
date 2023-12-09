@@ -24,10 +24,9 @@ using namespace std;
 class Bicicleta {
 
 private:
-    // string id_bicicleta;   no cal pq ho tinc al conjunt de bicis
     string id_estacion_asignada;
     list<pair<string,string> > recorrido_bici;  // va guardando los id de las estaciones por las que va pasando la bici
-    // pairs de origen , destino0
+                                                // pairs de origen , destino
 
 public:
     // Constructoras

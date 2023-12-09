@@ -61,9 +61,9 @@ int main() {
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;    
             else if (not bicing.existe_estacion(id_estacion_destino)) cout << "error: la estacion no existe" << endl;
             else {
-                string id_estacion_actual = cjo_bicis.consultar_bici(id_bici).estacion_asignada();
+                 string id_estacion_actual = cjo_bicis.consultar_bici(id_bici).estacion_asignada();
                  if (id_estacion_actual == id_estacion_destino) cout << "error: la bici ya esta en el sitio" << endl;
-                 else if (bicing.consultar_estacion(id_estacion_destino).hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
+                 else if (not bicing.consultar_estacion(id_estacion_destino).hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
                  else cjo_bicis.mover_bici(bicing, id_bici, id_estacion_actual, id_estacion_destino);
             }
         } 
@@ -81,9 +81,9 @@ int main() {
         else if (accion == "modificar_capacidad" or accion == "mc") {
             string id_estacion;
             int nueva_capacidad;
+            cin >> id_estacion >> nueva_capacidad;
             cout << "#mc " << id_estacion << ' ' << nueva_capacidad << endl;
 
-            cin >> id_estacion >> nueva_capacidad;
             if (not bicing.existe_estacion(id_estacion)) cout << "error: la estacion no existe" << endl;
             else {
                 Estacion est = bicing.consultar_estacion(id_estacion);

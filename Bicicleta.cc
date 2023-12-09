@@ -11,6 +11,7 @@ Bicicleta::Bicicleta(string id_estacion, list<pair<string,string> > recorrido_bi
 }
 
 void Bicicleta::modificar_bici(string id_estacion) {
+    // modificar bici esta mal hecho pq no le paso la estacion actual, o mejor dicho, la sobreescribo antes de utilizarla
     id_estacion_asignada = id_estacion;
     list<pair<string,string> >::iterator it = recorrido_bici.end();
     --it;
@@ -19,13 +20,23 @@ void Bicicleta::modificar_bici(string id_estacion) {
 }
 
 void Bicicleta::viajes_bici() const {
+    /*
     list<pair<string,string> >::const_iterator it = recorrido_bici.begin();
+    
     if (not (it->second == "inicio")) {
         while (it != recorrido_bici.end()) {
             cout << it->first << ' ' << it->second << endl;
             ++it;
         }
     }
+    */
+
+   auto it = recorrido_bici.begin();
+
+   while (it != recorrido_bici.end()) {
+    cout << it->first << " " << it->second << endl;
+    ++it;
+   }
 }
 
 string Bicicleta::estacion_asignada() const {
