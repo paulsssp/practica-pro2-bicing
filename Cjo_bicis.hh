@@ -57,6 +57,9 @@ class Cjo_bicis {
         */
         void alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est);
 
+        void alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici);
+
+
         /** @brief Da de baja una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici

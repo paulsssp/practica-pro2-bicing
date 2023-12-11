@@ -20,23 +20,13 @@ void Bicicleta::modificar_bici(string id_estacion) {
 }
 
 void Bicicleta::viajes_bici() const {
-    /*
     list<pair<string,string> >::const_iterator it = recorrido_bici.begin();
-    
     if (not (it->second == "inicio")) {
         while (it != recorrido_bici.end()) {
             cout << it->first << ' ' << it->second << endl;
             ++it;
         }
     }
-    */
-
-   auto it = recorrido_bici.begin();
-
-   while (it != recorrido_bici.end()) {
-    cout << it->first << " " << it->second << endl;
-    ++it;
-   }
 }
 
 string Bicicleta::estacion_asignada() const {
