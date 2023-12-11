@@ -24,7 +24,6 @@ using namespace std;
 class Estacion {
 
 private:
-    // string id_estacion;  esta al conjunt d'estacions ja, no es necessari
     // int nro_bicis; // o mirar el size() que puede que pete la eficiencia
     int capacidad; 
     int coeficiente; // no se si es necesario

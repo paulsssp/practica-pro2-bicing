@@ -11,7 +11,6 @@ Bicicleta::Bicicleta(string id_estacion, list<pair<string,string> > recorrido_bi
 }
 
 void Bicicleta::modificar_bici(string id_estacion) {
-    // modificar bici esta mal hecho pq no le paso la estacion actual, o mejor dicho, la sobreescribo antes de utilizarla
     id_estacion_asignada = id_estacion;
     list<pair<string,string> >::iterator it = recorrido_bici.end();
     --it;

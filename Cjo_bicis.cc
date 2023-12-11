@@ -42,23 +42,6 @@ void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_ac
     bici.modificar_bici(id_estacion_destino); // tengo que modificar los viajes de la bici y la estacion asignada
     Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
     alta_bici_modificada(bicing, id_bici, id_estacion_destino, est_destino, bici); // doy de alta la bici en la estacion destino
-
-   
-   
-   /*
-    Estacion est_actual = bicing.consultar_estacion(id_estacion_actual);
-    Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
-    baja_bici(bicing, id_bici, est_actual);  // doy de baja la bici en la estacion actual
-
-    // error pq en alta bici reseteo los viajes de la bici
-    // la bicicleta ya existe en la estacion, solo hay que cambiarle la estacion asignada
-    // a la estacion hay que sumarle una bici y restarle una plaza libre
-
-
-    alta_bici(bicing, id_bici, id_estacion_destino, est_destino); // doy de alta la bici en la estacion destino
-    consultar_bici(id_bici).modificar_bici(id_estacion_destino); // tengo que modificar los viajes de la bici
-    // en el segundo mover bici sale que la bici no cabe (pero en vd no hay ninguna y la capacidad es uno)
-    */
 }      
 
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
