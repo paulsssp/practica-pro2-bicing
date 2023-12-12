@@ -67,6 +67,13 @@ class Cjo_bicis {
         */
         void baja_bici(Bicing& bicing, string id_bici, Estacion& est);
 
+        /** @brief Reestructura la ubicacion de las bicis en el bicing
+        *     
+        * \pre <em>cierto</em>
+        * \post Acerca bicis hasta la primera estacion
+         */
+        void subir_bicis(const BinTree<string>& b, Bicing& bicing);
+
         // Consultoras
 
         /** @brief Consultora de una bicicleta

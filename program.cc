@@ -102,7 +102,7 @@ int main() {
         else if (accion == "subir_bicis" or accion == "sb") {
             cout << "#sb" << endl;
 
-            bicing.subir_bicis();
+            cjo_bicis.subir_bicis(bicing.consultar_bicing(), bicing);
             // anadir y quitar bicis de bicing (implica la clase estacion tmb)
         } 
         else if (accion == "asignar_estacion" or accion == "ae") {

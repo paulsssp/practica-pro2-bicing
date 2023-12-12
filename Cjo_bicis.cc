@@ -44,6 +44,40 @@ void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_ac
     alta_bici_modificada(bicing, id_bici, id_estacion_destino, est_destino, bici); // doy de alta la bici en la estacion destino
 }      
 
+void Cjo_bicis::subir_bicis(const BinTree<string>& b, Bicing& bicing) {
+    // si reutilizo mover bicis no tengo que añadir viajes!!!
+    // b es el bintree de estaciones
+    // el bintree no se modifica, solo se consulta, tan solo hay que modificar a qué estacion está asignada una bici
+    if (not b.empty()) {
+        subir_bicis(b.left(), bicing);
+        subir_bicis(b.right(), bicing);
+        if (not b.left().empty() or not b.right().empty()) {
+            // tiene hijos y por tanto tengo que subir las bicis de los hijos
+
+            // tengo que mirar si el .value() tiene plazas libres y los hijos tienen bicis  
+            while (bicing.hay_plazas(b.value()) and (bicing.tiene_bicis(b.left().value()) or bicing.tiene_bicis(b.right().value()))) {
+                // si tiene, tengo que ver cuál de los dos hijos tiene más bicis
+                // subiré de la que tenga más bicis, la bici con id más pequeño
+                if (bicing.nro_bicis(b.left().value()) > bicing.nro_bicis(b.right().value())) {
+                    // subiré de la izquierda
+                    string id_bici = bicing.id_bici_menor(b.left().value());
+                    string id_estacion_actual = bicing.asignar_estacion(id_bici);
+                    string id_estacion_destino = b.value();
+                    mover_bici(bicing, id_bici, id_estacion_actual, id_estacion_destino);
+                }
+                else {
+                    // subiré de la derecha
+                    string id_bici = bicing.id_bici_menor(b.right().value());
+                    string id_estacion_actual = bicing.asignar_estacion(id_bici);
+                    string id_estacion_destino = b.value();
+                    mover_bici(bicing, id_bici, id_estacion_actual, id_estacion_destino);
+                }
+            }
+        }
+    }
+}
+
+
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
     return cto_bicis[id_bici].estacion_asignada();
 } 

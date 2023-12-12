@@ -56,13 +56,6 @@ public:
     // Modificadoras
 
 
-    /** @brief Reestructura la ubicacion de las bicis en el bicing
-    *     
-    * \pre <em>cierto</em>
-    * \post Acerca bicis hasta la primera estacion
-    */
-    void subir_bicis(); // tiene que ser static????
-
     /** @brief Asigna una estacion a una bici
     *     
     * \pre Hay plazas libres en el bicing
@@ -73,7 +66,6 @@ public:
     void modificar_estacion(const Estacion& est, string id_estacion);
 
     void modificar_plazas(int diferencia_plazas);
-
 
     // Consultoras
 
@@ -99,6 +91,16 @@ public:
     */
     int plazas_libres_total() const;
 
+    BinTree<string> consultar_bicing();
+
+    bool hay_plazas(string id_estacion);
+
+    bool tiene_bicis(string id_estacion);
+
+    int nro_bicis(string id_estacion);
+
+    string id_bici_menor(string id_estacion);
+    
 
     // Destructora (en caso que haya)
 
