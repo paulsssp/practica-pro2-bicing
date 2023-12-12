@@ -8,7 +8,6 @@
 #define BICING_HH
 
 #include "Estacion.hh"
-#include "Cjo_bicis.hh"
 using namespace std;
 
 #ifndef NO_DIAGRAM
@@ -56,35 +55,13 @@ public:
 
     // Modificadoras
 
-    /** @brief Da de alta una bici
-    *
-    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
-    * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
-    */
-    void alta_bici(Cjo_bicis& cto_bicis, string id_bici, string id_estacion, Estacion& est);
-
-    void alta_bici_modificada(Cjo_bicis& bicis, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici);
-    
-    /** @brief Da de baja una bici
-    *
-    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
-    * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
-    */
-    void baja_bici(Cjo_bicis& bicis, string id_bici, Estacion& est);
-
-    /** @brief Mueve una bici de una estacion a otra
-    *
-    * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
-    * \post
-    */
-    void mover_bici(Cjo_bicis& bicis, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
 
     /** @brief Reestructura la ubicacion de las bicis en el bicing
     *     
     * \pre <em>cierto</em>
     * \post Acerca bicis hasta la primera estacion
     */
-    void subir_bicis(Cjo_bicis& bicis); // tiene que ser static????
+    void subir_bicis(); // tiene que ser static????
 
     /** @brief Asigna una estacion a una bici
     *     
@@ -96,8 +73,6 @@ public:
     void modificar_estacion(const Estacion& est, string id_estacion);
 
     void modificar_plazas(int diferencia_plazas);
-
-
 
 
     // Consultoras
@@ -123,9 +98,6 @@ public:
     * \post El resultado indica es el numero de plazas libres del bicing
     */
     int plazas_libres_total() const;
-
-
-    Estacion Bicing::consultar_estacion_bici(string id_bici, const Cjo_bicis& bicis);
 
 
     // Destructora (en caso que haya)

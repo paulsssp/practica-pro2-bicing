@@ -7,8 +7,8 @@
 #ifndef CJO_BICIS_HH
 #define CJO_BICIS_HH
 
-//#include "Estacion.hh"
 #include "Bicicleta.hh"
+#include "Estacion.hh"
 #include "Bicing.hh"
 using namespace std;
 
@@ -41,12 +41,31 @@ class Cjo_bicis {
 
         // Modificadoras
 
-        void asignar_bici(const Bicicleta& bici, string id_bici);
-        
-        void retirar_bici(string id_bici);
-
         // mover bici hay que ponerla en cjo bicis y pasarle el bicing como parametro
+       
+        /** @brief Mueve una bici de una estacion a otra
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
+        * \post
+        */
+         void mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
         
+        /** @brief Da de alta una bici
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
+        * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
+        */
+        void alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est);
+
+        void alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici);
+
+
+        /** @brief Da de baja una bici
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
+        * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
+        */
+        void baja_bici(Bicing& bicing, string id_bici, Estacion& est);
 
         // Consultoras
 

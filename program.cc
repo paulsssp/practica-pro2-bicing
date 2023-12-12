@@ -22,7 +22,7 @@ int main() {
                 Estacion est = bicing.consultar_estacion(id_estacion);
                 if (not est.hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
                 else {
-                    bicing.alta_bici(cjo_bicis ,id_bici, id_estacion, est);  
+                    cjo_bicis.alta_bici(bicing ,id_bici, id_estacion, est);  
                 }
             }
         } 
@@ -33,10 +33,8 @@ int main() {
 
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;
             else {
-                // consultar estacion bici se puede modificar para no pasar est como parametro y hacerlo en la funcion
-                // tmb hay que modificarla en mover bici
                 Estacion est = cjo_bicis.consultar_estacion_bici(id_bici, bicing);
-                bicing.baja_bici(cjo_bicis, id_bici, est);
+                cjo_bicis.baja_bici(bicing, id_bici, est);
             }
         } 
         else if (accion == "estacion_bici" or accion == "eb") {
@@ -66,7 +64,7 @@ int main() {
                  string id_estacion_actual = cjo_bicis.consultar_bici(id_bici).estacion_asignada();
                  if (id_estacion_actual == id_estacion_destino) cout << "error: la bici ya esta en el sitio" << endl;
                  else if (not bicing.consultar_estacion(id_estacion_destino).hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
-                 else bicing.mover_bici(cjo_bicis, id_bici, id_estacion_actual, id_estacion_destino);
+                 else cjo_bicis.mover_bici(bicing, id_bici, id_estacion_actual, id_estacion_destino);
             }
         } 
         else if (accion == "bicis_estacion" or accion == "be") {
@@ -104,7 +102,7 @@ int main() {
         else if (accion == "subir_bicis" or accion == "sb") {
             cout << "#sb" << endl;
 
-            bicing.subir_bicis(cjo_bicis);
+            bicing.subir_bicis();
             // anadir y quitar bicis de bicing (implica la clase estacion tmb)
         } 
         else if (accion == "asignar_estacion" or accion == "ae") {
