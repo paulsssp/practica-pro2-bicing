@@ -61,8 +61,7 @@ public:
     * \pre Hay plazas libres en el bicing
     * \post Asigna una estacion a una bici y retorna el ID_ESTACION de la estacion asignada
     */
-    string asignar_estacion(string id_bici) const; // tiene que ser static????
-
+   
     void modificar_estacion(const Estacion& est, string id_estacion);
 
     void modificar_plazas(int diferencia_plazas);

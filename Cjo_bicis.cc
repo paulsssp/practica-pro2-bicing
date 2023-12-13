@@ -15,8 +15,7 @@ void Cjo_bicis::alta_bici(Bicing& bicing, string id_bici, string id_estacion, Es
     cto_bicis[id_bici] = bici;
     est.anadir_bici(id_bici);
     bicing.modificar_estacion(est, id_estacion);
-    bicing.modificar_plazas(-1); // resta una plaza libre del bicing
-    // asegurarme de que resta una plaza libre en la estacion (y sume un num de bicis) y en el bicing que tmb reste
+    bicing.modificar_plazas(-1);
 }
 
 void Cjo_bicis::alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici) {
@@ -32,7 +31,6 @@ void Cjo_bicis::baja_bici(Bicing& bicing, string id_bici, Estacion& est) {
     est.borrar_bici(id_bici); 
     bicing.modificar_estacion(est, id_bici_borrada); 
     bicing.modificar_plazas(1); 
-    // asegurarme de que suma una plaza libre en la estacion (y resta un num de bicis) y en el bicing que tmb sume
 }
 
 void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino) {
@@ -63,35 +61,43 @@ void Cjo_bicis::subir_bicis(const BinTree<string>& b, Bicing& bicing) {
     // si reutilizo mover bicis no tengo que añadir viajes!!!
     // b es el bintree de estaciones
     // el bintree no se modifica, solo se consulta, tan solo hay que modificar a qué estacion está asignada una bici
+        
     if (not b.empty()) {
-        subir_bicis(b.left(), bicing);
-        subir_bicis(b.right(), bicing);
-        if (not b.left().empty() or not b.right().empty()) {
-            // tiene hijos y por tanto tengo que subir las bicis de los hijos
-    
+        // como solo puede tener 0 o dos estaciones, con comprovar solo una ya sé si tiene hijos o no
+        if (not b.left().empty()) {
+            // subir bicis del que tenga más bicis
             // tengo que mirar si el .value() tiene plazas libres y los hijos tienen bicis  
             while (bicing.hay_plazas(b.value()) and (bicing.tiene_bicis(b.left().value()) or bicing.tiene_bicis(b.right().value()))) {
-                // si tiene, tengo que ver cuál de los dos hijos tiene más bicis
-                // subiré de la que tenga más bicis, la bici con id más pequeño
+                string id_bici;
                 if (bicing.nro_bicis(b.left().value()) > bicing.nro_bicis(b.right().value())) {
                     // subiré de la izquierda
-                    string id_bici = bicing.id_bici_menor(b.left().value());  // lo unico q cambia si subo una bici de der o de izq
-                    string id_estacion_actual = consultar_bici(id_bici).estacion_asignada();
-                    string id_estacion_destino = b.value();
-                    mover_bici_subida(bicing, id_bici, id_estacion_actual, id_estacion_destino);
+                    id_bici = bicing.id_bici_menor(b.left().value());  // lo unico q cambia si subo una bici de der o de izq
+                }
+                else if (bicing.nro_bicis(b.left().value()) < bicing.nro_bicis(b.right().value())) {
+                    // subiré de la derecha
+                    id_bici = bicing.id_bici_menor(b.right().value());
                 }
                 else {
-                    // subiré de la derecha
-                    string id_bici = bicing.id_bici_menor(b.right().value());
-                    string id_estacion_actual = consultar_bici(id_bici).estacion_asignada();
-                    string id_estacion_destino = b.value();
-                    mover_bici_subida(bicing, id_bici, id_estacion_actual, id_estacion_destino);
+                    // tienen el mismo numero de bicis => compruebo los dos id mas pequño y subo el ínfimo
+                    string id_bici_izq = bicing.id_bici_menor(b.left().value());
+                    string id_bici_der = bicing.id_bici_menor(b.right().value());
+                    if (id_bici_izq < id_bici_der) id_bici = id_bici_izq;
+                    else id_bici = id_bici_der;
                 }
+                string id_estacion_actual = consultar_bici(id_bici).estacion_asignada();
+                string id_estacion_destino = b.value();
+                mover_bici_subida(bicing, id_bici, id_estacion_actual, id_estacion_destino);
             }
         }
+        subir_bicis(b.left(), bicing);
+        subir_bicis(b.right(), bicing);
     }
 }
 
+/*
+string Cjo_bicis::asignar_estacion(string id_bici, Bicing& bicing, const BinTree<string>& b) {
+    return id_bici;
+}*/
 
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
     return cto_bicis[id_bici].estacion_asignada();
@@ -99,7 +105,7 @@ string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
 
 Estacion Cjo_bicis::consultar_estacion_bici(string id_bici, const Bicing& bicing) {
     string id_estacion = consultar_id_estacion_bici(id_bici);
-    return bicing.consultar_estacion(id_estacion); // acceder al bicing y consultar la estacion con id_estacion
+    return bicing.consultar_estacion(id_estacion);
 }
 
 Bicicleta Cjo_bicis::consultar_bici(string id_bici) const {

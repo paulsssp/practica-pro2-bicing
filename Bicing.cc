@@ -29,12 +29,6 @@ void Bicing::leer() {
     bicing = leer_bintree();
 }
 
-
-// no implementada
-string Bicing::asignar_estacion(string id_bici) const {
-    return id_bici;
-}
-
 bool Bicing::existe_estacion(string id_estacion) const{
     return estaciones.find(id_estacion) != estaciones.end();
 }

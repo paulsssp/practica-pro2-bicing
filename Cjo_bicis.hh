@@ -61,6 +61,8 @@ class Cjo_bicis {
 
         void mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);
 
+       // string asignar_estacion(string id_bici, Bicing& bicing, const BinTree<string>& b);
+
 
         /** @brief Da de baja una bici
         *
