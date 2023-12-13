@@ -28,6 +28,10 @@ void Bicicleta::viajes_bici() const {
     }
 }
 
+void Bicicleta::modificar_estacion_asignada(string id_estacion) {
+    id_estacion_asignada = id_estacion;
+}
+
 string Bicicleta::estacion_asignada() const {
     return id_estacion_asignada;
 }

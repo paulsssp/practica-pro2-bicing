@@ -60,8 +60,8 @@ int Bicing::nro_bicis(string id_estacion) {
 }
 
 string Bicing::id_bici_menor(string id_estacion) {
-    // return *(estaciones[id_estacion].bicis.begin());
-    
+    Estacion est = estaciones[id_estacion];
+    return est.primera_bici();
 }
 
 

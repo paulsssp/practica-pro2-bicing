@@ -54,6 +54,7 @@ public:
 
     void modificar_bici(string id_estacion);
 
+    void modificar_estacion_asignada(string id_estacion);
 
     // Consultoras
 

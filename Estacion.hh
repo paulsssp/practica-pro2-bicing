@@ -29,7 +29,7 @@ private:
     int coeficiente; // no se si es necesario
     int nro_plazas_libres; // (capacidad - nro_bicis) 
     // int nro_estaciones_siguientes;   es realmente necesario????
-    set<string> bicis;
+    set<string> bicis; // ordenado crecientemente por id_bici
 
     /** @brief Da de alta una bici en una estación
     *
@@ -114,6 +114,8 @@ public:
     */
     int num_bicis() const;
 
+    string primera_bici() const;
+    
     // Destructora (en caso que haya)
 
 

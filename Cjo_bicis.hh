@@ -59,6 +59,8 @@ class Cjo_bicis {
 
         void alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici);
 
+        void mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);
+
 
         /** @brief Da de baja una bici
         *

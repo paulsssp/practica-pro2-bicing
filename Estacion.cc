@@ -51,12 +51,19 @@ int Estacion::plazas_libres() const {
     return nro_plazas_libres;
 }
 
+string Estacion::primera_bici() const {
+    return *bicis.begin();
+}
+
+
 
 void Estacion::listar_bicis() const {
     for (set<string>::const_iterator it = bicis.begin(); it != bicis.end(); ++it) {
         cout << *it << endl;
     }
 }
+
+
 
 
 
