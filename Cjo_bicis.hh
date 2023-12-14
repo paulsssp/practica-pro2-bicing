@@ -61,8 +61,9 @@ class Cjo_bicis {
 
         void mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);
 
-       // string asignar_estacion(string id_bici, Bicing& bicing, const BinTree<string>& b);
+        string asignar_estacion(string id_bici, Bicing& bicing);
 
+        void calcular_coef(Bicing& bicing, const BinTree<string>& b, string id_bici, int& plz_total, int& nro_est_hijos, string& id_coef_max, double& coef_max);
 
         /** @brief Da de baja una bici
         *

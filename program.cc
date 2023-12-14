@@ -104,7 +104,6 @@ int main() {
             cout << "#sb" << endl;
 
             cjo_bicis.subir_bicis(bicing.consultar_bicing(), bicing);
-            // anadir y quitar bicis de bicing (implica la clase estacion tmb)
         } 
         else if (accion == "asignar_estacion" or accion == "ae") {
             string id_bici;
@@ -113,12 +112,7 @@ int main() {
 
             if (cjo_bicis.existe_bici(id_bici)) cout << "error: la bici ya existe" << endl;
             else if (bicing.plazas_libres_total() == 0) cout << "error: no hay plazas libres" << endl;
-            // else cout << cjo_bicis.asignar_estacion(id_bici, bicing, bicing.consultar_bicing()) << endl;
-
-            
-            // hay que buscar la mejor estacion para la bici (bicing)
-            // anadir la bici al conjunto de bicis (bicing y estacion)
-            // insert en el cjo_bicis la nueva bici inicializada
+            else cout << cjo_bicis.asignar_estacion(id_bici, bicing) << endl;
         } 
         cin >> accion;
     }
