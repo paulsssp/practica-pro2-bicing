@@ -8,6 +8,7 @@ int main() {
     Bicing bicing;
     bicing.leer();
     Cjo_bicis cjo_bicis;
+    cjo_bicis.actualizar_hijos(bicing.consultar_bicing(), bicing);
     string accion;
     cin >> accion;
     while (accion != "fin") {

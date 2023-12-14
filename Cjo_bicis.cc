@@ -9,6 +9,39 @@ bool Cjo_bicis::existe_bici(string id_bici) const {
     return cto_bicis.find(id_bici) != cto_bicis.end();
 }
 
+double Cjo_bicis::calcular_hijos(const BinTree<string>& b) {
+    if (b.empty()) return 0;
+    else return 1 + calcular_hijos(b.left()) + calcular_hijos(b.right());
+}
+
+void Cjo_bicis::actualizar_hijos(const BinTree<string>& b, Bicing& bicing) {
+    if (not b.empty()) {
+        actualizar_hijos(b.left(), bicing);
+        actualizar_hijos(b.right(), bicing);
+        Estacion est = bicing.consultar_estacion(b.value());
+        est.modificar_hijos_pair(calcular_hijos(b));
+        bicing.modificar_estacion(est, b.value());
+    }
+}
+
+int Cjo_bicis::calcular_plazas(const BinTree<string>& b, Bicing& bicing) {
+    if (b.empty()) return 0;
+    else {
+        int plazas_actual = bicing.consultar_estacion(b.value()).plazas_libres();
+        return plazas_actual + calcular_plazas(b.left(), bicing) + calcular_plazas(b.right(), bicing);
+    }
+}
+
+void Cjo_bicis::actualizar_plazas(const BinTree<string>& b, Bicing& bicing) {
+    if (not b.empty()) {
+        actualizar_plazas(b.left(), bicing);
+        actualizar_plazas(b.right(), bicing);
+        Estacion est = bicing.consultar_estacion(b.value());
+        est.modificar_plazas_pair(calcular_plazas(b, bicing));
+        bicing.modificar_estacion(est, b.value());
+    }
+}
+
 void Cjo_bicis::alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est) {
     list<pair<string,string> > recorrido_bici {make_pair(id_estacion, "inicio")};
     Bicicleta bici = Bicicleta(id_estacion, recorrido_bici);
@@ -94,16 +127,35 @@ void Cjo_bicis::subir_bicis(const BinTree<string>& b, Bicing& bicing) {
     }
 }
 
-void calcular_coef(Bicing& bicing, const BinTree<string>& b, string id_bici, int& plz_total, int& nro_est_hijos, string& id_coef_max, double& coef_max) {
-    calcular_coef(bicing, b.left(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
-    calcular_coef(bicing, b.right(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
+/*
+void Cjo_bicis::calcular_coef(int& n, Bicing& bicing, const BinTree<string>& b, string id_bici, int& plz_total, int& nro_est_hijos, string& id_coef_max, double& coef_max) {
     if (not b.empty()) {
-        double coef;
+        calcular_coef(n, bicing, b.left(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
+        calcular_coef(n, bicing, b.right(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
+        cout << "nodo " << n << ' ';
+        ++n;
+        int nro_plazas_actual = bicing.consultar_estacion(b.value()).plazas_libres();
+        if (not b.left().empty())nro_est_hijos += 2;
+        plz_total += nro_plazas_actual;
+        double coef = plz_total/double(nro_est_hijos + 1);
+        if (coef > coef_max) {
+            coef_max = coef;
+            id_coef_max = b.value();
+        }
+        else if (coef == coef_max) {
+            if (b.value() < id_coef_max) id_coef_max = b.value();
+        }
+        cout << "nro plazas total " << plz_total << " nro hijos " << nro_est_hijos << endl;
+    }
+}*/
 
 
-
-        
-        // hay que buscar la mejor estacion para la bici (bicing)    coef mas grnade y si son identicos el id mas pequeño
+void Cjo_bicis::calcular_coef(Bicing& bicing, const BinTree<string>& b, string& id_coef_max, double& coef_max) {
+    if (not b.empty()) {
+        calcular_coef(bicing, b.left(), id_coef_max, coef_max);
+        calcular_coef(bicing, b.right(), id_coef_max, coef_max);
+        Estacion est = bicing.consultar_estacion(b.value());
+        double coef = est.pair_plazas()/est.pair_hijos();
         if (coef > coef_max) {
             coef_max = coef;
             id_coef_max = b.value();
@@ -114,17 +166,27 @@ void calcular_coef(Bicing& bicing, const BinTree<string>& b, string id_bici, int
     }
 }
 
+string Cjo_bicis::asignar_estacion(string id_bici, Bicing& bicing) {           
+    string id_coef_max;
+    double coef_max = -1;
+    actualizar_plazas(bicing.consultar_bicing(), bicing);
+    calcular_coef(bicing, bicing.consultar_bicing(), id_coef_max, coef_max);
+    Estacion est = bicing.consultar_estacion(id_coef_max);
+    alta_bici(bicing, id_bici, id_coef_max, est);
+    return id_coef_max;
+}
 
+/*
 string Cjo_bicis::asignar_estacion(string id_bici, Bicing& bicing) {           
     string id_coef_max;
     int plz_total, nro_est_hijos;
     plz_total = nro_est_hijos = 0;
     double coef_max = 0;
-    calcular_coef(bicing,bicing.consultar_bicing(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
+    calcular_coef(bicing, bicing.consultar_bicing(), id_coef_max, coef_max);
     Estacion est = bicing.consultar_estacion(id_coef_max);
     alta_bici(bicing, id_bici, id_coef_max, est);
     return id_coef_max;
-}
+}*/
 
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
     return cto_bicis[id_bici].estacion_asignada();

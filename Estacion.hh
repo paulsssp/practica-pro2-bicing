@@ -30,13 +30,7 @@ private:
     int nro_plazas_libres; // (capacidad - nro_bicis) 
     // int nro_estaciones_siguientes;   es realmente necesario????
     set<string> bicis; // ordenado crecientemente por id_bici
-
-    /** @brief Da de alta una bici en una estación
-    *
-    * \pre El campo coeficiente del parámetro implícito no necesariamente tiene el valor que le corresponde
-    * \post El campo coeficiente se actualiza
-    */
-    void recalcular_coeficiente();
+    pair<int,double> plz_hijos;
 
 public:
     // Constructoras
@@ -59,6 +53,9 @@ public:
 
 
     // Modificadoras
+
+    void modificar_hijos_pair(double hijos);
+    void modificar_plazas_pair(int plazas);
 
     /** @brief Da de alta una bici en una estación
     *
@@ -84,6 +81,10 @@ public:
 
 
     // Consultoras
+
+    int pair_plazas();
+
+    double pair_hijos();
 
     /** @brief Consultora de las plazas libres de una estación
     *

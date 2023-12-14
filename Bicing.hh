@@ -39,6 +39,7 @@ private:
     * \post El árbol de identificadores y su mapa de de estaciones implicitas creados correctamente.
     */
     BinTree<string> leer_bintree();
+
 public:
     // Constructoras
 

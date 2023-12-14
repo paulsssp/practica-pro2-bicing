@@ -28,6 +28,11 @@ class Cjo_bicis {
     private:
         map<string, Bicicleta> cto_bicis; 
 
+        double calcular_hijos(const BinTree<string>& b);
+
+        int calcular_plazas(const BinTree<string>& b, Bicing& bicing);
+
+
     public:
         // Constructoras
 
@@ -40,6 +45,14 @@ class Cjo_bicis {
 
 
         // Modificadoras
+
+
+
+        void actualizar_hijos(const BinTree<string>& b, Bicing& bicing);
+
+        void actualizar_plazas(const BinTree<string>& b, Bicing& bicing);
+
+
 
         // mover bici hay que ponerla en cjo bicis y pasarle el bicing como parametro
        
@@ -63,7 +76,7 @@ class Cjo_bicis {
 
         string asignar_estacion(string id_bici, Bicing& bicing);
 
-        void calcular_coef(Bicing& bicing, const BinTree<string>& b, string id_bici, int& plz_total, int& nro_est_hijos, string& id_coef_max, double& coef_max);
+        void calcular_coef(Bicing& bicing, const BinTree<string>& b, string& id_coef_max, double& coef_max);
 
         /** @brief Da de baja una bici
         *
