@@ -43,8 +43,9 @@ void Cjo_bicis::actualizar_plazas(const BinTree<string>& b, Bicing& bicing) {
 }
 
 void Cjo_bicis::alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est) {
-    list<pair<string,string> > recorrido_bici {make_pair(id_estacion, "inicio")};
-    Bicicleta bici = Bicicleta(id_estacion, recorrido_bici);
+    // list<pair<string,string> > recorrido_bici {make_pair(id_estacion, "inicio")};
+    // Bicicleta bici = Bicicleta(id_estacion, recorrido_bici);
+    Bicicleta bici = Bicicleta(id_estacion);
     cto_bicis[id_bici] = bici;
     est.anadir_bici(id_bici);
     bicing.modificar_estacion(est, id_estacion);
@@ -70,7 +71,7 @@ void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_ac
     Bicicleta bici = consultar_bici(id_bici);
     Estacion est_actual = bicing.consultar_estacion(id_estacion_actual);
     baja_bici(bicing, id_bici, est_actual);  // doy de baja la bici en la estacion actual
-    bici.modificar_bici(id_estacion_destino); // tengo que modificar los viajes de la bici y la estacion asignada
+    bici.modificar_bici(id_estacion_actual, id_estacion_destino); // tengo que modificar los viajes de la bici y la estacion asignada
     Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
     alta_bici_modificada(bicing, id_bici, id_estacion_destino, est_destino, bici); // doy de alta la bici en la estacion destino
 }      

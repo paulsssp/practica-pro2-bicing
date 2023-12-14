@@ -8,14 +8,7 @@
 #define CJO_BICIS_HH
 
 #include "Bicicleta.hh"
-#include "Estacion.hh"
 #include "Bicing.hh"
-using namespace std;
-
-#ifndef NO_DIAGRAM
-#include <string>
-#include <map>
-#endif
 
 
 /** @class Cjo_bicis
@@ -23,6 +16,7 @@ using namespace std;
  *
  *  descripcion detallada
 */
+
 class Cjo_bicis {
 
     private:

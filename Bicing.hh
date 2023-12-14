@@ -8,11 +8,8 @@
 #define BICING_HH
 
 #include "Estacion.hh"
-using namespace std;
 
 #ifndef NO_DIAGRAM
-#include <iostream>
-#include <string>
 #include <map>
 #include "BinTree.hh"
 #endif

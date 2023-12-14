@@ -1,8 +1,4 @@
-#include "Estacion.hh"
-#include "Bicing.hh"
 #include "Cjo_bicis.hh"
-#include <iostream>
-using namespace std;
 
 int main() {
     Bicing bicing;
@@ -75,8 +71,7 @@ int main() {
 
             if (not bicing.existe_estacion(id_estacion)) cout << "error: la estacion no existe" << endl;
             else {
-                Estacion est = bicing.consultar_estacion(id_estacion);
-                est.listar_bicis();
+                bicing.consultar_estacion(id_estacion).listar_bicis();
             }
         } 
         else if (accion == "modificar_capacidad" or accion == "mc") {
@@ -90,9 +85,9 @@ int main() {
                 Estacion est = bicing.consultar_estacion(id_estacion);
                 if (nueva_capacidad < est.num_bicis()) cout << "error: capacidad insuficiente" << endl;
                 else {
-                    int diferencia_plazas = est.modificar_capacidad(nueva_capacidad); // modificar la capacidad y las plazas libres de una estacion
-                    bicing.modificar_estacion(est, id_estacion); // modificar la estacion en el bicing
-                    bicing.modificar_plazas(diferencia_plazas); // modificar las plazas totales del bicing (que las sume)
+                    int diferencia_plazas = est.modificar_capacidad(nueva_capacidad);
+                    bicing.modificar_estacion(est, id_estacion); 
+                    bicing.modificar_plazas(diferencia_plazas); 
                 }
             }
         } 

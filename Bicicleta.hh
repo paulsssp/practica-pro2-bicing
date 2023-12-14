@@ -45,14 +45,14 @@ public:
     * \pre <em>cierto</em>
     * \post El resultado es una bicicleta sin identificador...   //arreglar esto
     */
-    Bicicleta(string id_estacion, list<pair<string,string> > recorrido_bici);
+    Bicicleta(string id_estacion);
 
     // alta_bici es una constructora, debería de ir aqui?????
 
 
     // Modificadoras
 
-    void modificar_bici(string id_estacion);
+    void modificar_bici(string id_estacion_actual, string id_estacion_destino);
 
     void modificar_estacion_asignada(string id_estacion);
 
