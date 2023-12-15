@@ -1,7 +1,8 @@
 /** @file Bicicleta.hh
  *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase Bicicleta
- * 
+ *  @date 2023-12-17
+ *
  *  @copyright Copyright (c) 2023
 */
 #ifndef BICICLETA_HH
@@ -25,8 +26,7 @@ class Bicicleta {
 
 private:
     string id_estacion_asignada;
-    list<pair<string,string> > recorrido_bici;  // va guardando los id de las estaciones por las que va pasando la bici
-                                                // pairs de origen , destino
+    list<pair<string,string> > recorrido_bici; // pairs de origen/destino cuando se mueve la bici por otras estaciones
 
 public:
     // Constructoras
@@ -47,23 +47,15 @@ public:
     */
     Bicicleta(string id_estacion);
 
-    // alta_bici es una constructora, debería de ir aqui?????
-
 
     // Modificadoras
 
-    void modificar_bici(string id_estacion_actual, string id_estacion_destino);
-
     void modificar_estacion_asignada(string id_estacion);
 
-    // Consultoras
+    void modificar_bici(string id_estacion_actual, string id_estacion_destino);
 
-    /** @brief Consultora de los viajes de una bicicleta
-    *
-    * \pre <em>cierto</em>
-    * \post El resultado es una lista de estaciones recorridas por el parámetro implícito
-    */
-    void viajes_bici() const;  // hago un void o otra cosas????    aqui o en lectura/escritura
+
+    // Consultoras
 
     /** @brief Consultora de la estacion asignada
     *
@@ -72,13 +64,12 @@ public:
     */
     string estacion_asignada() const;
 
-
-    // Destructora (en caso que haya)
-
-    // baja_bici es una destructora, deberia de ir aqui?????
-
-
-    // Lectura y escritura (en caso que haya)
+    /** @brief Consultora de los viajes de una bicicleta
+    *
+    * \pre <em>cierto</em>
+    * \post El resultado es una lista de estaciones recorridas por el parámetro implícito
+    */
+    void viajes_bici() const;  
 };
 
 #endif

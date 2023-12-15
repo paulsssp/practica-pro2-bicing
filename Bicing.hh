@@ -1,6 +1,7 @@
 /** @file Bicing.hh
  *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase Bicing
+ *  @date 2023-12-17
  * 
  *  @copyright Copyright (c) 2023
 */
@@ -23,11 +24,9 @@
 class Bicing {
 
 private:
-    //int nro_estaciones;   es pot fer .size() en un mapa pero nse si petará la eficiéncia
     int nro_plaza_libres_total;
-    string id_coeficiente_max;  // imax
-    BinTree<string> bicing;  // bintree de id de estaciones
-    map<string,Estacion> estaciones;   // mapa de la correspondencia de cada id (de una estacion) a cada estacion
+    BinTree<string> bicing; // bintree de id de estaciones
+    map<string,Estacion> estaciones; // mapa de la correspondencia de cada id (de una estacion) a cada estacion
 
     /** @brief Lee el árbol de estaciones recursivamente
     *
@@ -48,11 +47,19 @@ public:
     */
     Bicing();
 
-    // habrá que crear copiadoras??
+
+    // Lectura 
+
+    /** @brief Operación de lectura
+    *
+    * La lectura se hace immersiva
+    * \pre <em>cierto</em>
+    * \post El parámetro implícito pasa a tener los atributos leidos del canal estandar d'entrada
+    */
+    void leer();
 
 
     // Modificadoras
-
 
     /** @brief Asigna una estacion a una bici
     *     
@@ -63,6 +70,7 @@ public:
     void modificar_estacion(const Estacion& est, string id_estacion);
 
     void modificar_plazas(int diferencia_plazas);
+
 
     // Consultoras
 
@@ -81,6 +89,8 @@ public:
     */
     Estacion consultar_estacion(string id_estacion) const;
 
+    bool hay_plazas(string id_estacion);
+
     /** @brief Consultora de las plazas libres del bicing
     *
     * \pre <em>cierto</em>
@@ -88,31 +98,13 @@ public:
     */
     int plazas_libres_total() const;
 
-    BinTree<string> consultar_bicing();
-
-    bool hay_plazas(string id_estacion);
-
     bool tiene_bicis(string id_estacion);
 
     int nro_bicis(string id_estacion);
 
     string id_bici_menor(string id_estacion);
-    
 
-    // Destructora (en caso que haya)
-
-
-    // Lectura y escritura (en caso que haya)
-
-
-    /** @brief Operación de lectura
-    *
-    * La lectura se hace immersiva
-    * \pre <em>cierto</em>
-    * \post El parámetro implícito pasa a tener los atributos leidos del canal estandar d'entrada
-    */
-    void leer();
-
+    BinTree<string> consultar_bicing();
 };
 
 #endif

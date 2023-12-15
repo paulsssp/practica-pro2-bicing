@@ -9,9 +9,17 @@ Bicicleta::Bicicleta(string id_estacion) {
     id_estacion_asignada = id_estacion;
 }
 
+void Bicicleta::modificar_estacion_asignada(string id_estacion) {
+    id_estacion_asignada = id_estacion;
+}
+
 void Bicicleta::modificar_bici(string id_anterior, string id_destino) {
     id_estacion_asignada = id_destino;
     recorrido_bici.push_back(make_pair(id_anterior, id_destino));
+}
+
+string Bicicleta::estacion_asignada() const {
+    return id_estacion_asignada;
 }
 
 void Bicicleta::viajes_bici() const {
@@ -20,12 +28,4 @@ void Bicicleta::viajes_bici() const {
         cout << it->first << ' ' << it->second << endl;
         ++it;
     }
-}
-
-void Bicicleta::modificar_estacion_asignada(string id_estacion) {
-    id_estacion_asignada = id_estacion;
-}
-
-string Bicicleta::estacion_asignada() const {
-    return id_estacion_asignada;
 }

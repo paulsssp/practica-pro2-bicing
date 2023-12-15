@@ -1,6 +1,7 @@
 /** @file Estacion.hh
  *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase Estacion
+ *  @date 2023-12-17
  * 
  *  @copyright Copyright (c) 2023
 */
@@ -24,13 +25,10 @@ using namespace std;
 class Estacion {
 
 private:
-    // int nro_bicis; // o mirar el size() que puede que pete la eficiencia
     int capacidad; 
-    int coeficiente; // no se si es necesario
-    int nro_plazas_libres; // (capacidad - nro_bicis) 
-    // int nro_estaciones_siguientes;   es realmente necesario????
-    set<string> bicis; // ordenado crecientemente por id_bici
-    pair<int,double> plz_hijos;
+    int nro_plazas_libres;
+    set<string> bicis; 
+    pair<int,double> plz_hijos; // pair de plazas libres de las subestaciones (esta incluida) y coeficiente de hijos (este nodo incluido)
 
 public:
     // Constructoras
@@ -42,8 +40,6 @@ public:
     */
     Estacion();
 
-
-    // arreglar el doxygen de esta creadora
     /** @brief Constructora de una estación
     *
     * \pre <em>cierto</em>
@@ -53,9 +49,6 @@ public:
 
 
     // Modificadoras
-
-    void modificar_hijos_pair(double hijos);
-    void modificar_plazas_pair(int plazas);
 
     /** @brief Da de alta una bici en una estación
     *
@@ -73,18 +66,18 @@ public:
     void borrar_bici(string id_bici);
 
     /** @brief Modifica la capacidad de una estación
-    *
+    * 
     * \pre la nueva capacidad es mayor que el numero de bicis que hay en la estacion   // mayor o igual según el enunciado
-    * \post El resultado indica si el parametro implicito tiene plazas libres
+    * \post la diferencia de plazas libres para modificar el bicing
     */
     int modificar_capacidad(int nueva_capacidad); 
 
+    void modificar_hijos_pair(double hijos);
+
+    void modificar_plazas_pair(int plazas);
+
 
     // Consultoras
-
-    int pair_plazas();
-
-    double pair_hijos();
 
     /** @brief Consultora de las plazas libres de una estación
     *
@@ -101,13 +94,6 @@ public:
     */
     int plazas_libres() const;
 
-    /** @brief Consultora de las bicis que hay en una estación
-    *
-    * \pre <em>cierto</em>
-    * \post El resultado es una lista de las bicicletas que hay en una estacion  // el resultado no es una lista, si no que se imprime por pantalla
-    */
-    void listar_bicis() const;
-
     /** @brief Consultora del numero de bicis que hay en una estación
     *
     * \pre <em>cierto</em>
@@ -115,12 +101,18 @@ public:
     */
     int num_bicis() const;
 
+    int pair_plazas();
+
+    double pair_hijos();
+
     string primera_bici() const;
     
-    // Destructora (en caso que haya)
-
-
-    // Lectura y escritura (en caso que haya)
+    /** @brief Consultora de las bicis que hay en una estación
+    *
+    * \pre <em>cierto</em>
+    * \post El resultado es una lista de las bicicletas que hay en una estacion  // el resultado no es una lista, si no que se imprime por pantalla
+    */
+    void listar_bicis() const;
 };
 
 #endif

@@ -18,6 +18,13 @@ Cjo_bicis.o: Cjo_bicis.cc Cjo_bicis.hh Bicicleta.hh Bicing.hh
 Bicicleta.o: Bicicleta.cc Bicicleta.hh
 	g++ -c Bicicleta.cc $(OPCIONS)
 
+cleandoc:
+	rm -rf .DOC/html
+	rm -rf :DOC/latex
+
+doc: cleandoc
+	doxygen Doxyfile
+
 tar:
 	tar -cvf practica.tar *.cc *.hh Makefile
 

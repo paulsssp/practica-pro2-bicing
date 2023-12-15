@@ -1,12 +1,7 @@
 #include "Cjo_bicis.hh"
 
-
 Cjo_bicis::Cjo_bicis() {
     cto_bicis = map<string, Bicicleta>();
-}
-
-bool Cjo_bicis::existe_bici(string id_bici) const {
-    return cto_bicis.find(id_bici) != cto_bicis.end();
 }
 
 double Cjo_bicis::calcular_hijos(const BinTree<string>& b) {
@@ -24,27 +19,7 @@ void Cjo_bicis::actualizar_hijos(const BinTree<string>& b, Bicing& bicing) {
     }
 }
 
-int Cjo_bicis::calcular_plazas(const BinTree<string>& b, Bicing& bicing) {
-    if (b.empty()) return 0;
-    else {
-        int plazas_actual = bicing.consultar_estacion(b.value()).plazas_libres();
-        return plazas_actual + calcular_plazas(b.left(), bicing) + calcular_plazas(b.right(), bicing);
-    }
-}
-
-void Cjo_bicis::actualizar_plazas(const BinTree<string>& b, Bicing& bicing) {
-    if (not b.empty()) {
-        actualizar_plazas(b.left(), bicing);
-        actualizar_plazas(b.right(), bicing);
-        Estacion est = bicing.consultar_estacion(b.value());
-        est.modificar_plazas_pair(calcular_plazas(b, bicing));
-        bicing.modificar_estacion(est, b.value());
-    }
-}
-
-void Cjo_bicis::alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est) {
-    // list<pair<string,string> > recorrido_bici {make_pair(id_estacion, "inicio")};
-    // Bicicleta bici = Bicicleta(id_estacion, recorrido_bici);
+void Cjo_bicis::alta_bici(Bicing& bicing, Estacion& est, string id_bici, string id_estacion) {
     Bicicleta bici = Bicicleta(id_estacion);
     cto_bicis[id_bici] = bici;
     est.anadir_bici(id_bici);
@@ -52,14 +27,14 @@ void Cjo_bicis::alta_bici(Bicing& bicing, string id_bici, string id_estacion, Es
     bicing.modificar_plazas(-1);
 }
 
-void Cjo_bicis::alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici) {
+void Cjo_bicis::alta_bici_modificada(Bicing& bicing, Estacion& est, Bicicleta& bici, string id_bici, string id_estacion) {
     cto_bicis[id_bici] = bici;
     est.anadir_bici(id_bici);
     bicing.modificar_estacion(est, id_estacion);
     bicing.modificar_plazas(-1); 
 }
 
-void Cjo_bicis::baja_bici(Bicing& bicing, string id_bici, Estacion& est) {
+void Cjo_bicis::baja_bici(Bicing& bicing, Estacion& est, string id_bici) {
     string id_bici_borrada = consultar_id_estacion_bici(id_bici);
     cto_bicis.erase(id_bici);    
     est.borrar_bici(id_bici); 
@@ -70,32 +45,24 @@ void Cjo_bicis::baja_bici(Bicing& bicing, string id_bici, Estacion& est) {
 void Cjo_bicis::mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino) {
     Bicicleta bici = consultar_bici(id_bici);
     Estacion est_actual = bicing.consultar_estacion(id_estacion_actual);
-    baja_bici(bicing, id_bici, est_actual);  // doy de baja la bici en la estacion actual
+    baja_bici(bicing, est_actual, id_bici);  // doy de baja la bici en la estacion actual
     bici.modificar_bici(id_estacion_actual, id_estacion_destino); // tengo que modificar los viajes de la bici y la estacion asignada
     Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
-    alta_bici_modificada(bicing, id_bici, id_estacion_destino, est_destino, bici); // doy de alta la bici en la estacion destino
+    alta_bici_modificada(bicing, est_destino, bici, id_bici, id_estacion_destino); // doy de alta la bici en la estacion destino
 }      
 
-void Cjo_bicis::mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino) {
-    // tengo que hacer lo mismo que mover bicis pero sin tener en cuenta los viajes
-    
-    // tengo que guardar la bici en una variable auxiliar
+void Cjo_bicis::mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino) {    
     Bicicleta bici = consultar_bici(id_bici);
-    // tengo que consultar la est
     Estacion est_actual = bicing.consultar_estacion(id_estacion_actual);
     // doy de baja la bici en la estacion actual  
-    baja_bici(bicing, id_bici, est_actual);
+    baja_bici(bicing, est_actual, id_bici);
     // tengo que NO modificar los viajes de la bici y SI la estacion asignada
     bici.modificar_estacion_asignada(id_estacion_destino);
     Estacion est_destino = bicing.consultar_estacion(id_estacion_destino);
-    alta_bici_modificada(bicing, id_bici, id_estacion_destino, est_destino, bici); // doy de alta la bici en la estacion destino
+    alta_bici_modificada(bicing,  est_destino, bici, id_bici, id_estacion_destino); // doy de alta la bici en la estacion destino
 }
 
 void Cjo_bicis::subir_bicis(const BinTree<string>& b, Bicing& bicing) {
-    // si reutilizo mover bicis no tengo que añadir viajes!!!
-    // b es el bintree de estaciones
-    // el bintree no se modifica, solo se consulta, tan solo hay que modificar a qué estacion está asignada una bici
-        
     if (not b.empty()) {
         // como solo puede tener 0 o dos estaciones, con comprovar solo una ya sé si tiene hijos o no
         if (not b.left().empty()) {
@@ -128,33 +95,11 @@ void Cjo_bicis::subir_bicis(const BinTree<string>& b, Bicing& bicing) {
     }
 }
 
-/*
-void Cjo_bicis::calcular_coef(int& n, Bicing& bicing, const BinTree<string>& b, string id_bici, int& plz_total, int& nro_est_hijos, string& id_coef_max, double& coef_max) {
-    if (not b.empty()) {
-        calcular_coef(n, bicing, b.left(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
-        calcular_coef(n, bicing, b.right(), id_bici, plz_total, nro_est_hijos, id_coef_max, coef_max);
-        cout << "nodo " << n << ' ';
-        ++n;
-        int nro_plazas_actual = bicing.consultar_estacion(b.value()).plazas_libres();
-        if (not b.left().empty())nro_est_hijos += 2;
-        plz_total += nro_plazas_actual;
-        double coef = plz_total/double(nro_est_hijos + 1);
-        if (coef > coef_max) {
-            coef_max = coef;
-            id_coef_max = b.value();
-        }
-        else if (coef == coef_max) {
-            if (b.value() < id_coef_max) id_coef_max = b.value();
-        }
-        cout << "nro plazas total " << plz_total << " nro hijos " << nro_est_hijos << endl;
-    }
-}*/
 
-
-void Cjo_bicis::calcular_coef(Bicing& bicing, const BinTree<string>& b, string& id_coef_max, double& coef_max) {
+void Cjo_bicis::calcular_coef(const BinTree<string>& b, Bicing& bicing, string& id_coef_max, double& coef_max) {
     if (not b.empty()) {
-        calcular_coef(bicing, b.left(), id_coef_max, coef_max);
-        calcular_coef(bicing, b.right(), id_coef_max, coef_max);
+        calcular_coef(b.left(), bicing, id_coef_max, coef_max);
+        calcular_coef(b.right(), bicing, id_coef_max, coef_max);
         Estacion est = bicing.consultar_estacion(b.value());
         double coef = est.pair_plazas()/est.pair_hijos();
         if (coef > coef_max) {
@@ -167,38 +112,48 @@ void Cjo_bicis::calcular_coef(Bicing& bicing, const BinTree<string>& b, string& 
     }
 }
 
-string Cjo_bicis::asignar_estacion(string id_bici, Bicing& bicing) {           
+int Cjo_bicis::calcular_plazas(const BinTree<string>& b, Bicing& bicing) {
+    if (b.empty()) return 0;
+    else {
+        int plazas_actual = bicing.consultar_estacion(b.value()).plazas_libres();
+        return plazas_actual + calcular_plazas(b.left(), bicing) + calcular_plazas(b.right(), bicing);
+    }
+}
+
+void Cjo_bicis::actualizar_plazas(const BinTree<string>& b, Bicing& bicing) {
+    if (not b.empty()) {
+        actualizar_plazas(b.left(), bicing);
+        actualizar_plazas(b.right(), bicing);
+        Estacion est = bicing.consultar_estacion(b.value());
+        est.modificar_plazas_pair(calcular_plazas(b, bicing));
+        bicing.modificar_estacion(est, b.value());
+    }
+}
+
+string Cjo_bicis::asignar_estacion(Bicing& bicing, string id_bici) {           
     string id_coef_max;
     double coef_max = -1;
     actualizar_plazas(bicing.consultar_bicing(), bicing);
-    calcular_coef(bicing, bicing.consultar_bicing(), id_coef_max, coef_max);
+    calcular_coef(bicing.consultar_bicing(), bicing, id_coef_max, coef_max);
     Estacion est = bicing.consultar_estacion(id_coef_max);
-    alta_bici(bicing, id_bici, id_coef_max, est);
+    alta_bici(bicing, est, id_bici, id_coef_max);
     return id_coef_max;
 }
 
-/*
-string Cjo_bicis::asignar_estacion(string id_bici, Bicing& bicing) {           
-    string id_coef_max;
-    int plz_total, nro_est_hijos;
-    plz_total = nro_est_hijos = 0;
-    double coef_max = 0;
-    calcular_coef(bicing, bicing.consultar_bicing(), id_coef_max, coef_max);
-    Estacion est = bicing.consultar_estacion(id_coef_max);
-    alta_bici(bicing, id_bici, id_coef_max, est);
-    return id_coef_max;
-}*/
+bool Cjo_bicis::existe_bici(string id_bici) const {
+    return cto_bicis.find(id_bici) != cto_bicis.end();
+}
+
+Bicicleta Cjo_bicis::consultar_bici(string id_bici) const {
+    return cto_bicis.find(id_bici)->second;
+}
 
 string Cjo_bicis::consultar_id_estacion_bici(string id_bici) {
     return cto_bicis[id_bici].estacion_asignada();
 } 
 
-Estacion Cjo_bicis::consultar_estacion_bici(string id_bici, const Bicing& bicing) {
+Estacion Cjo_bicis::consultar_estacion_bici(const Bicing& bicing, string id_bici) {
     string id_estacion = consultar_id_estacion_bici(id_bici);
     return bicing.consultar_estacion(id_estacion);
-}
-
-Bicicleta Cjo_bicis::consultar_bici(string id_bici) const {
-    return cto_bicis.find(id_bici)->second;
 }
 

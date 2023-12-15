@@ -19,7 +19,7 @@ int main() {
                 Estacion est = bicing.consultar_estacion(id_estacion);
                 if (not est.hay_plazas_libres()) cout << "error: la bici no cabe" << endl;
                 else {
-                    cjo_bicis.alta_bici(bicing ,id_bici, id_estacion, est);  
+                    cjo_bicis.alta_bici(bicing, est, id_bici, id_estacion);  
                 }
             }
         } 
@@ -30,8 +30,8 @@ int main() {
 
             if (not cjo_bicis.existe_bici(id_bici)) cout << "error: la bici no existe" << endl;
             else {
-                Estacion est = cjo_bicis.consultar_estacion_bici(id_bici, bicing);
-                cjo_bicis.baja_bici(bicing, id_bici, est);
+                Estacion est = cjo_bicis.consultar_estacion_bici(bicing, id_bici);
+                cjo_bicis.baja_bici(bicing, est, id_bici);
             }
         } 
         else if (accion == "estacion_bici" or accion == "eb") {
@@ -108,7 +108,7 @@ int main() {
 
             if (cjo_bicis.existe_bici(id_bici)) cout << "error: la bici ya existe" << endl;
             else if (bicing.plazas_libres_total() == 0) cout << "error: no hay plazas libres" << endl;
-            else cout << cjo_bicis.asignar_estacion(id_bici, bicing) << endl;
+            else cout << cjo_bicis.asignar_estacion(bicing, id_bici) << endl;
         } 
         cin >> accion;
     }

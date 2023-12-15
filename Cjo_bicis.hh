@@ -1,6 +1,7 @@
 /** @file Cjo_bicis.hh
  *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
  *  @brief Especificación de la clase conjunto de bicicletas
+ *  @date 2023-12-17
  * 
  *  @copyright Copyright (c) 2023
 */
@@ -12,9 +13,9 @@
 
 
 /** @class Cjo_bicis
- *  @brief descripcion breve
+ *  @brief descripcion breveee
  *
- *  descripcion detallada
+ *  descripcion detalladaaaa
 */
 
 class Cjo_bicis {
@@ -26,6 +27,14 @@ class Cjo_bicis {
 
         int calcular_plazas(const BinTree<string>& b, Bicing& bicing);
 
+        void actualizar_plazas(const BinTree<string>& b, Bicing& bicing);
+
+        void calcular_coef(const BinTree<string>& b, Bicing& bicing, string& id_coef_max, double& coef_max);
+
+        void alta_bici_modificada(Bicing& bicing, Estacion& est, Bicicleta& bici, string id_bici, string id_estacion);
+
+        // no hay que tener en cuenta los viajes
+        void mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);
 
     public:
         // Constructoras
@@ -40,51 +49,39 @@ class Cjo_bicis {
 
         // Modificadoras
 
-
-
         void actualizar_hijos(const BinTree<string>& b, Bicing& bicing);
 
-        void actualizar_plazas(const BinTree<string>& b, Bicing& bicing);
-
-
-
-        // mover bici hay que ponerla en cjo bicis y pasarle el bicing como parametro
-       
-        /** @brief Mueve una bici de una estacion a otra
-        *
-        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
-        * \post
-        */
-         void mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
-        
         /** @brief Da de alta una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
         * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
         */
-        void alta_bici(Bicing& bicing, string id_bici, string id_estacion, Estacion& est);
-
-        void alta_bici_modificada(Bicing& bicing, string id_bici, string id_estacion, Estacion& est, Bicicleta& bici);
-
-        void mover_bici_subida(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);
-
-        string asignar_estacion(string id_bici, Bicing& bicing);
-
-        void calcular_coef(Bicing& bicing, const BinTree<string>& b, string& id_coef_max, double& coef_max);
+        void alta_bici(Bicing& bicing, Estacion& est, string id_bici, string id_estacion);
 
         /** @brief Da de baja una bici
         *
         * \pre existe una bici en el parametro implicito con ID_BICI = id_bici
         * \post la bici con ID_BICI = id_bici ha sido eliminado del parametro implicito
         */
-        void baja_bici(Bicing& bicing, string id_bici, Estacion& est);
+        void baja_bici(Bicing& bicing, Estacion& est, string id_bici);
 
         /** @brief Reestructura la ubicacion de las bicis en el bicing
         *     
         * \pre <em>cierto</em>
         * \post Acerca bicis hasta la primera estacion
-         */
+        */
+       
+        /** @brief Mueve una bici de una estacion a otra
+        *
+        * \pre existe una bici en el parametro implicito con ID_BICI = id_bici  // ojo al escribir la pre pq el parametro implicito NO tiene bicis
+        * \post
+        */
+        void mover_bici(Bicing& bicing, string id_bici, string id_estacion_actual, string id_estacion_destino);  // acabar la pre y la post
+
         void subir_bicis(const BinTree<string>& b, Bicing& bicing);
+
+        string asignar_estacion(Bicing& bicing, string id_bici);
+
 
         // Consultoras
 
@@ -104,11 +101,7 @@ class Cjo_bicis {
 
         string consultar_id_estacion_bici(string id_bici);
 
-        Estacion consultar_estacion_bici(string id_bici, const Bicing& bicing);
-
-
-        // Lectura y escritura
+        Estacion consultar_estacion_bici(const Bicing& bicing, string id_bici);
 };
-
 
 #endif
