@@ -2,8 +2,6 @@
 *.o
 *.exe
 *.out
-*.cor
-*.inp
 justificacion_metodos.pdf
 Doxyfile
 practica.tar
