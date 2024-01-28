@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de PRO2: Fichero Fuente Cjo_bicis.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Práctica de PRO2
+   &#160;<span id="projectnumber">versión otoño 2023</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Cjo_bicis.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Cjo__bicis_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef CJO_BICIS_HH</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define CJO_BICIS_HH</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Bicicleta_8hh.html">Bicicleta.hh</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Bicing_8hh.html">Bicing.hh</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classCjo__bicis.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCjo__bicis.html">Cjo_bicis</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        map&lt;string, Bicicleta&gt; cto_bicis; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">double</span> calcular_hijos(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">int</span> calcular_plazas(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b, <a class="code" href="classBicing.html">Bicing</a>&amp; bicing);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;       </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> actualizar_plazas(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b, <a class="code" href="classBicing.html">Bicing</a>&amp; bicing);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">void</span> calcular_coef(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b, <a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <span class="keywordtype">string</span>&amp; id_coef_max, <span class="keywordtype">double</span>&amp; coef_max);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordtype">void</span> alta_bici_modificada(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <a class="code" href="classEstacion.html">Estacion</a>&amp; est, <a class="code" href="classBicicleta.html">Bicicleta</a>&amp; bici, <span class="keywordtype">string</span> id_bici, <span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> mover_bici_subida(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <span class="keywordtype">string</span> id_bici, <span class="keywordtype">string</span> id_estacion_actual, <span class="keywordtype">string</span> id_estacion_destino);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="classCjo__bicis.html#af70e3f87dae61a9716206b29b7fcd754">Cjo_bicis</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classCjo__bicis.html#a08f2a5f22c767db5bf4624e9068ff82e">actualizar_hijos</a>(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b, <a class="code" href="classBicing.html">Bicing</a>&amp; bicing);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classCjo__bicis.html#a3089003d43b28ce1ee386a33222d7788">alta_bici</a>(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <a class="code" href="classEstacion.html">Estacion</a>&amp; est, <span class="keywordtype">string</span> id_bici, <span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classCjo__bicis.html#a30609270a1556cb5fb96112a9a6c5ef4">baja_bici</a>(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <a class="code" href="classEstacion.html">Estacion</a>&amp; est, <span class="keywordtype">string</span> id_bici);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;       </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classCjo__bicis.html#a43fba97d608ae9165912fd2f762dbe7f">mover_bici</a>(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <span class="keywordtype">string</span> id_bici, <span class="keywordtype">string</span> id_estacion_actual, <span class="keywordtype">string</span> id_estacion_destino);  </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classCjo__bicis.html#a7242cb0a52080dc2b1d39b21d75efe27">subir_bicis</a>(<span class="keyword">const</span> BinTree&lt;string&gt;&amp; b, <a class="code" href="classBicing.html">Bicing</a>&amp; bicing);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classCjo__bicis.html#a56276b504a76f5aa29a694d83e2ccf46">asignar_estacion</a>(<a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <span class="keywordtype">string</span> id_bici);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classCjo__bicis.html#aa47bea00a34ba1148086c7d99d707fdf">existe_bici</a>(<span class="keywordtype">string</span> id_bici) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <a class="code" href="classBicicleta.html">Bicicleta</a> <a class="code" href="classCjo__bicis.html#afbf7381b0a83729abf9ff26bf7e496a3">consultar_bici</a>(<span class="keywordtype">string</span> id_bici) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classCjo__bicis.html#acc48e94522345d90ca0ebbae80b958da">consultar_id_estacion_bici</a>(<span class="keywordtype">string</span> id_bici);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="classEstacion.html">Estacion</a> <a class="code" href="classCjo__bicis.html#a125f1a4b5291a378127bbeaabaaf2abb">consultar_estacion_bici</a>(<span class="keyword">const</span> <a class="code" href="classBicing.html">Bicing</a>&amp; bicing, <span class="keywordtype">string</span> id_bici);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;};</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aBicicleta_8hh_html"><div class="ttname"><a href="Bicicleta_8hh.html">Bicicleta.hh</a></div><div class="ttdoc">Especificación de la clase Bicicleta.</div></div>
+<div class="ttc" id="aBicing_8hh_html"><div class="ttname"><a href="Bicing_8hh.html">Bicing.hh</a></div><div class="ttdoc">Especificación de la clase Bicing.</div></div>
+<div class="ttc" id="aclassBicicleta_html"><div class="ttname"><a href="classBicicleta.html">Bicicleta</a></div><div class="ttdoc">Representa una bicicleta con atributos id_estacion_asignada y recorrido_bici.</div><div class="ttdef"><b>Definition:</b> Bicicleta.hh:26</div></div>
+<div class="ttc" id="aclassBicing_html"><div class="ttname"><a href="classBicing.html">Bicing</a></div><div class="ttdoc">Representa un Bicing (es decir, un conjunto de estaciones)</div><div class="ttdef"><b>Definition:</b> Bicing.hh:25</div></div>
+<div class="ttc" id="aclassCjo__bicis_html"><div class="ttname"><a href="classCjo__bicis.html">Cjo_bicis</a></div><div class="ttdoc">Representa un Conjunto de Bicis.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.hh:21</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a08f2a5f22c767db5bf4624e9068ff82e"><div class="ttname"><a href="classCjo__bicis.html#a08f2a5f22c767db5bf4624e9068ff82e">Cjo_bicis::actualizar_hijos</a></div><div class="ttdeci">void actualizar_hijos(const BinTree&lt; string &gt; &amp;b, Bicing &amp;bicing)</div><div class="ttdoc">Actualiza el valor de los hijos que tiene cada estación del conjunto de bicis.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:12</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a125f1a4b5291a378127bbeaabaaf2abb"><div class="ttname"><a href="classCjo__bicis.html#a125f1a4b5291a378127bbeaabaaf2abb">Cjo_bicis::consultar_estacion_bici</a></div><div class="ttdeci">Estacion consultar_estacion_bici(const Bicing &amp;bicing, string id_bici)</div><div class="ttdoc">Consultora de una estación</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:155</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a30609270a1556cb5fb96112a9a6c5ef4"><div class="ttname"><a href="classCjo__bicis.html#a30609270a1556cb5fb96112a9a6c5ef4">Cjo_bicis::baja_bici</a></div><div class="ttdeci">void baja_bici(Bicing &amp;bicing, Estacion &amp;est, string id_bici)</div><div class="ttdoc">Da de baja una bici.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:37</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a3089003d43b28ce1ee386a33222d7788"><div class="ttname"><a href="classCjo__bicis.html#a3089003d43b28ce1ee386a33222d7788">Cjo_bicis::alta_bici</a></div><div class="ttdeci">void alta_bici(Bicing &amp;bicing, Estacion &amp;est, string id_bici, string id_estacion)</div><div class="ttdoc">Da de alta una bici.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:22</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a43fba97d608ae9165912fd2f762dbe7f"><div class="ttname"><a href="classCjo__bicis.html#a43fba97d608ae9165912fd2f762dbe7f">Cjo_bicis::mover_bici</a></div><div class="ttdeci">void mover_bici(Bicing &amp;bicing, string id_bici, string id_estacion_actual, string id_estacion_destino)</div><div class="ttdoc">Mueve una bici de una estacion a otra.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:45</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a56276b504a76f5aa29a694d83e2ccf46"><div class="ttname"><a href="classCjo__bicis.html#a56276b504a76f5aa29a694d83e2ccf46">Cjo_bicis::asignar_estacion</a></div><div class="ttdeci">string asignar_estacion(Bicing &amp;bicing, string id_bici)</div><div class="ttdoc">Se asigna una bici a la estación que se considere más oportuna.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:133</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_a7242cb0a52080dc2b1d39b21d75efe27"><div class="ttname"><a href="classCjo__bicis.html#a7242cb0a52080dc2b1d39b21d75efe27">Cjo_bicis::subir_bicis</a></div><div class="ttdeci">void subir_bicis(const BinTree&lt; string &gt; &amp;b, Bicing &amp;bicing)</div><div class="ttdoc">Acerca bicis hacia la primera estación.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:65</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_aa47bea00a34ba1148086c7d99d707fdf"><div class="ttname"><a href="classCjo__bicis.html#aa47bea00a34ba1148086c7d99d707fdf">Cjo_bicis::existe_bici</a></div><div class="ttdeci">bool existe_bici(string id_bici) const</div><div class="ttdoc">Consultora de una bicicleta.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:143</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_acc48e94522345d90ca0ebbae80b958da"><div class="ttname"><a href="classCjo__bicis.html#acc48e94522345d90ca0ebbae80b958da">Cjo_bicis::consultar_id_estacion_bici</a></div><div class="ttdeci">string consultar_id_estacion_bici(string id_bici)</div><div class="ttdoc">Consultora del identificador de una estación</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:151</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_af70e3f87dae61a9716206b29b7fcd754"><div class="ttname"><a href="classCjo__bicis.html#af70e3f87dae61a9716206b29b7fcd754">Cjo_bicis::Cjo_bicis</a></div><div class="ttdeci">Cjo_bicis()</div><div class="ttdoc">Creadora por defecto.</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:3</div></div>
+<div class="ttc" id="aclassCjo__bicis_html_afbf7381b0a83729abf9ff26bf7e496a3"><div class="ttname"><a href="classCjo__bicis.html#afbf7381b0a83729abf9ff26bf7e496a3">Cjo_bicis::consultar_bici</a></div><div class="ttdeci">Bicicleta consultar_bici(string id_bici) const</div><div class="ttdoc">Consultora de una bicicleta</div><div class="ttdef"><b>Definition:</b> Cjo_bicis.cc:147</div></div>
+<div class="ttc" id="aclassEstacion_html"><div class="ttname"><a href="classEstacion.html">Estacion</a></div><div class="ttdoc">Representa una estación con atributos capacidad, nro_plazas_libres, bicis y plz_hijos.</div><div class="ttdef"><b>Definition:</b> Estacion.hh:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

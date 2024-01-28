@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Práctica de PRO2: Fichero Fuente Bicing.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Práctica de PRO2
+   &#160;<span id="projectnumber">versión otoño 2023</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Bicing.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Bicing_8hh.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef BICING_HH</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define BICING_HH</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Estacion_8hh.html">Estacion.hh</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef NO_DIAGRAM</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;BinTree.hh&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classBicing.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBicing.html">Bicing</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> nro_plaza_libres_total;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        BinTree&lt;string&gt; bicing; <span class="comment">// bintree de id de estaciones</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        map&lt;string,Estacion&gt; estaciones; <span class="comment">// mapa de la correspondencia de cada id (de una estacion) a cada estacion</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        BinTree&lt;string&gt; leer_bintree();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Constructoras</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classBicing.html#ad494dfe952b706e0d7354534596146bd">Bicing</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="comment">// Lectura </span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classBicing.html#a07e996ad7bbbf994a997817b274954db">leer</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// Modificadoras</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classBicing.html#aff96ad6e29128d789456cc6cf9004190">modificar_estacion</a>(<span class="keyword">const</span> <a class="code" href="classEstacion.html">Estacion</a>&amp; est, <span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classBicing.html#a4809a4d7949d0b874b9b903c00e384b9">modificar_plazas</a>(<span class="keywordtype">int</span> diferencia_plazas);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// Consultoras</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classBicing.html#aea2da3bcefd09b66d2656195192d8299">existe_estacion</a>(<span class="keywordtype">string</span> id_estacion) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="classEstacion.html">Estacion</a> <a class="code" href="classBicing.html#a34b1e30c5dec6e3ef83636805e46042e">consultar_estacion</a>(<span class="keywordtype">string</span> id_estacion) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classBicing.html#af1783a4d39020a1dd521ffc0107bcc0a">hay_plazas</a>(<span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classBicing.html#a0cccd31b900a27456e3acbedda996b5c">plazas_libres_total</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classBicing.html#a8093056511edc49ffb50522a4703cbea">tiene_bicis</a>(<span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classBicing.html#a61e3440ca33a97b43bdb9825a3495e4e">nro_bicis</a>(<span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">string</span> <a class="code" href="classBicing.html#ad8422a97a6ceb93d03bcb0aef066e662">id_bici_menor</a>(<span class="keywordtype">string</span> id_estacion);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        BinTree&lt;string&gt; <a class="code" href="classBicing.html#ab015f4da47a58c82bb0ec665267ab27e">consultar_bicing</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aEstacion_8hh_html"><div class="ttname"><a href="Estacion_8hh.html">Estacion.hh</a></div><div class="ttdoc">Especificación de la clase Estacion.</div></div>
+<div class="ttc" id="aclassBicing_html"><div class="ttname"><a href="classBicing.html">Bicing</a></div><div class="ttdoc">Representa un Bicing (es decir, un conjunto de estaciones)</div><div class="ttdef"><b>Definition:</b> Bicing.hh:25</div></div>
+<div class="ttc" id="aclassBicing_html_a07e996ad7bbbf994a997817b274954db"><div class="ttname"><a href="classBicing.html#a07e996ad7bbbf994a997817b274954db">Bicing::leer</a></div><div class="ttdeci">void leer()</div><div class="ttdoc">Operación de lectura.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:23</div></div>
+<div class="ttc" id="aclassBicing_html_a0cccd31b900a27456e3acbedda996b5c"><div class="ttname"><a href="classBicing.html#a0cccd31b900a27456e3acbedda996b5c">Bicing::plazas_libres_total</a></div><div class="ttdeci">int plazas_libres_total() const</div><div class="ttdoc">Consultora de las plazas libres del bicing.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:47</div></div>
+<div class="ttc" id="aclassBicing_html_a34b1e30c5dec6e3ef83636805e46042e"><div class="ttname"><a href="classBicing.html#a34b1e30c5dec6e3ef83636805e46042e">Bicing::consultar_estacion</a></div><div class="ttdeci">Estacion consultar_estacion(string id_estacion) const</div><div class="ttdoc">Consultora de una estacion.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:39</div></div>
+<div class="ttc" id="aclassBicing_html_a4809a4d7949d0b874b9b903c00e384b9"><div class="ttname"><a href="classBicing.html#a4809a4d7949d0b874b9b903c00e384b9">Bicing::modificar_plazas</a></div><div class="ttdeci">void modificar_plazas(int diferencia_plazas)</div><div class="ttdoc">Modifica las plazas libres que hay en todo en bicing.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:31</div></div>
+<div class="ttc" id="aclassBicing_html_a61e3440ca33a97b43bdb9825a3495e4e"><div class="ttname"><a href="classBicing.html#a61e3440ca33a97b43bdb9825a3495e4e">Bicing::nro_bicis</a></div><div class="ttdeci">int nro_bicis(string id_estacion)</div><div class="ttdoc">Consultora del número de bicis la estación con identificador = &quot;id_estacion&quot;.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:55</div></div>
+<div class="ttc" id="aclassBicing_html_a8093056511edc49ffb50522a4703cbea"><div class="ttname"><a href="classBicing.html#a8093056511edc49ffb50522a4703cbea">Bicing::tiene_bicis</a></div><div class="ttdeci">bool tiene_bicis(string id_estacion)</div><div class="ttdoc">Consultora de las plazas libres del bicing.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:51</div></div>
+<div class="ttc" id="aclassBicing_html_ab015f4da47a58c82bb0ec665267ab27e"><div class="ttname"><a href="classBicing.html#ab015f4da47a58c82bb0ec665267ab27e">Bicing::consultar_bicing</a></div><div class="ttdeci">BinTree&lt; string &gt; consultar_bicing()</div><div class="ttdoc">Consultora de la estructura del bicing.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:64</div></div>
+<div class="ttc" id="aclassBicing_html_ad494dfe952b706e0d7354534596146bd"><div class="ttname"><a href="classBicing.html#ad494dfe952b706e0d7354534596146bd">Bicing::Bicing</a></div><div class="ttdeci">Bicing()</div><div class="ttdoc">Creadora por defecto.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:3</div></div>
+<div class="ttc" id="aclassBicing_html_ad8422a97a6ceb93d03bcb0aef066e662"><div class="ttname"><a href="classBicing.html#ad8422a97a6ceb93d03bcb0aef066e662">Bicing::id_bici_menor</a></div><div class="ttdeci">string id_bici_menor(string id_estacion)</div><div class="ttdoc">Consultora del identificador de una bici.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:59</div></div>
+<div class="ttc" id="aclassBicing_html_aea2da3bcefd09b66d2656195192d8299"><div class="ttname"><a href="classBicing.html#aea2da3bcefd09b66d2656195192d8299">Bicing::existe_estacion</a></div><div class="ttdeci">bool existe_estacion(string id_estacion) const</div><div class="ttdoc">Consultora de una estación.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:35</div></div>
+<div class="ttc" id="aclassBicing_html_af1783a4d39020a1dd521ffc0107bcc0a"><div class="ttname"><a href="classBicing.html#af1783a4d39020a1dd521ffc0107bcc0a">Bicing::hay_plazas</a></div><div class="ttdeci">bool hay_plazas(string id_estacion)</div><div class="ttdoc">Consultora de las plazas libres que hay en una estación.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:43</div></div>
+<div class="ttc" id="aclassBicing_html_aff96ad6e29128d789456cc6cf9004190"><div class="ttname"><a href="classBicing.html#aff96ad6e29128d789456cc6cf9004190">Bicing::modificar_estacion</a></div><div class="ttdeci">void modificar_estacion(const Estacion &amp;est, string id_estacion)</div><div class="ttdoc">Actualiza la estacion a la que se le asocia &quot;id_estacion&quot;.</div><div class="ttdef"><b>Definition:</b> Bicing.cc:27</div></div>
+<div class="ttc" id="aclassEstacion_html"><div class="ttname"><a href="classEstacion.html">Estacion</a></div><div class="ttdoc">Representa una estación con atributos capacidad, nro_plazas_libres, bicis y plz_hijos.</div><div class="ttdef"><b>Definition:</b> Estacion.hh:25</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

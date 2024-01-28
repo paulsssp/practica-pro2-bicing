@@ -26,7 +26,7 @@ doc: cleandoc
 	doxygen Doxyfile
 
 tar:
-	tar -cvf practica.tar *.cc *.hh Makefile
+	tar -cvf practica.tar *.cc *.hh Makefile paula.perez.html justificacion_metodos.pdf
 
 clean:
 	rm -f *.o

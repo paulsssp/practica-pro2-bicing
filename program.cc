@@ -1,3 +1,23 @@
+/** @file program.cc
+ *  @author Paula Pérez (paula.perez.chia@estudiantat.upc.edu) 
+ *  @brief Programa principal de la práctica 
+ *  @date 2023-12-17
+ * 
+ *  @copyright Copyright (c) 2023
+ */
+ /**
+ *  @mainpage Bicing bifurcado
+ *
+ * Este programa simula el funcionamiento de un bicing bifurcado. Tenemos un sistema de Bicing con una estación especial, que llamaremos “primera estación”. Cada estación tiene dos o cero estaciones siguientes. 
+ *
+ * Cada estación tiene un identificador string que solo tiene letras y digítos. Cada estación puede albergar un número diferente de bicis. Cada estación ha de saber qué bicis tiene. Se puede cambiar la capacidad de una estación.
+
+ * Cada bicicleta tiene un identificador string que solo tiene letras y digítos. Una bici ha de saber qué viajes ha hecho. Una bici está siempre asignada a una estación, que puede ir cambiando.
+ *
+ * El programa principal se encuentra en el módulo <em>program.cc</em>. En base a los datos proporcionaos por el enunciado, se introducen las clases <li>Bicing</li>, <li>Conjunto de bicis</li>, <li>Estacion</li> y <li>Bicicleta</li>.
+ *
+*/
+
 #include "Cjo_bicis.hh"
 
 int main() {
