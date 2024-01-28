@@ -12,18 +12,18 @@ El programa principal se encuentra en el módulo program.cc. En base a los datos
 - _Bicing_
 - _Conjunto de bicis_
 - _Estacion_
--_Bicicleta_
+- _Bicicleta_
 
 Para más detalle acceder a la carpeta [informacion-adicional](https://github.com/paulsssp/practica-pro2-bicing/tree/main/informacion-adicional) donde se muestra el enunciado oficial con las acciones que se pueden realizar.
 
 ## Ejecuccion
 Asegúrate de que tienes instalado Make y G++. Si no, los puedes instalar desde la terminal mediante:
-'''
+```
 sudo apt install make
 sudo apt install g++
-'''
+```
 
-Una vez hecho, compila y crea el ejecutable desde la terminal en la carpeta en la que se encuentran los ficheros mediante 'make' y ejecútalo con './program.exe'.
+Una vez hecho, compila y crea el ejecutable desde la terminal en la carpeta en la que se encuentran los ficheros mediante `make` y ejecútalo con `./program.exe`.
 
 Dentro de la carpeta [informacion-adicional](https://github.com/paulsssp/practica-pro2-bicing/tree/main/informacion-adicional) encontrarás juegos de prueba con los que comprobar su correcto funcionamiento.
 
@@ -37,6 +37,8 @@ Para acceder a la documentacion de Doxygen se ha de buscar el abrir el fichero *
 
 Esta versión está valorada bajo un **3/4 en la corrección automática** del [Jutge](https://jutge.org/), superando así los juegos de prueba públicos, privado 1 y privado 2, exceptuando la eficiencia.
 
-Como posibles mejoras para que de la **eficiencia** se tendrían que ahorrar consultoras que son muy costosas, sobre todo en la acción de asignar estación.
+Como posibles mejoras para que de la **eficiencia** se tendrían que ahorrar consultoras que son muy costosas, sobre todo en la acción de _asignar estación_.
 
 Por otra parte, para mejorar la **modularidad** habría que pasar muchas de las funciones que se hacen en _conjunto de bicis_ a _bicing_, pasaríamos menos parámetros y especialmente estructuras no tan complejas.
+
+Se tuvo que hacer una rama nueva porque al intentar incorporar estas mejoras empezó a dar errores en.
