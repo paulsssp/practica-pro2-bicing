@@ -29,7 +29,7 @@ Dentro de la carpeta [informacion-adicional](https://github.com/paulsssp/practic
 
 ## Doxygen
 
-Para acceder a la documentacion de Doxygen se ha de buscar el abrir el fichero **index.html** dentro de la carpeta paula.perez.html
+Para acceder a la documentacion de Doxygen se ha de buscar el abrir el fichero **index.html** dentro de la carpeta [paula.perez.html](https://github.com/paulsssp/practica-pro2-bicing/tree/main/aula.perez.html).
 
 **!** Error: no se ven los atributos y funciones privadas de las clases
 
